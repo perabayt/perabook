@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Perabook · Romancılar ve senaristler için hikâye dosyası</title>
+<meta name="description" content="Perabook; karakterleri, ilişkileri, dünyayı, sahneleri ve bölüm iskeletini birbirine bağlı tutan bir hikâye dosyası. Tarayıcıda açılır, hesap istemez, yazdıklarınız kendi bilgisayarınızda kalır. Örnek bir romanla canlı deneyin.">
+<meta name="theme-color" content="#ECE8DF">
+<link rel="icon" type="image/svg+xml" href="ikon.svg">
+<link rel="apple-touch-icon" href="ikon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Perabayt">
+<meta property="og:title" content="Perabook · Hikâyenizin bütün iplerini tek masada tutun.">
+<meta property="og:description" content="Romancılar ve senaristler için hikâye dosyası: karakterler, ilişki tahtası, dünya, sahneler, iskelet, zaman çizelgesi, akış şeması ve harita. Hesap yok, veriler tarayıcıda.">
+<meta property="og:url" content="https://perabayt.github.io/perabook/">
+<meta property="og:image" content="https://perabayt.github.io/perabook/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Perabook ilişki tahtası: örnek romanın yedi karakteri ve aralarındaki bağlar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Perabook · Hikâyenizin bütün iplerini tek masada tutun.">
+<meta name="twitter:description" content="Romancılar ve senaristler için hikâye dosyası. Örnek bir romanla tarayıcıda canlı deneyin.">
+<meta name="twitter:image" content="https://perabayt.github.io/perabook/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<script src="/_ortak/serit.js" defer></script>
+<style>
+:root{
+  --paper:#ECE8DF; --paper2:#F6F3EC; --paper3:#E2DCCF; --ink:#16130F; --ink2:#4A453E; --ink3:#635C51;
+  --seal:#D7372B; --seald:#A8261D; --ok:#2F6B4F; --blue:#2563A8; --amber:#C57A00; --plum:#5C4B8A;
+  --soft:rgba(22,19,15,.14);
+  --serif:"Fraunces","Iowan Old Style",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cond:"Oswald","Arial Narrow",sans-serif;
+  --mono:"Space Mono",ui-monospace,Consolas,monospace;
+  --w:1200px; --gut:24px;
+  --ease:cubic-bezier(.22,.8,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(var(--ink) .8px,transparent .9px);background-size:7px 7px;opacity:.045}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--seal);outline-offset:3px}
+::selection{background:rgba(215,55,43,.22)}
+.sar{max-width:var(--w);margin:0 auto;padding:0 var(--gut);position:relative}
+section{position:relative;scroll-margin-top:70px}
+.atla{position:absolute;left:-999px;top:8px;z-index:99;background:var(--ink);color:var(--paper);padding:10px 14px}
+.atla:focus{left:16px}
+
+/* type */
+.etiket{display:inline-flex;align-items:center;gap:10px;font:700 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--seald)}
+.etiket::before{content:"";width:22px;height:2px;background:var(--seal)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.018em;text-wrap:balance;font-optical-sizing:auto}
+h1 i,h2 i,h3 i{font-style:italic;font-weight:400;color:var(--seal)}
+h2{font-size:clamp(34px,4.8vw,60px);line-height:1.04}
+.bas{max-width:760px}
+.bas h2{margin:18px 0 18px}
+.bas p{margin:0;color:var(--ink2);font-size:18.5px;line-height:1.62;max-width:640px;text-wrap:pretty}
+kbd{font:700 .78em var(--mono);padding:1px 6px;border:1.5px solid currentColor;border-radius:3px;white-space:nowrap}
+.bag{color:var(--seal);font-weight:600;border-bottom:1.5px dashed var(--seal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;padding:15px 22px;border:2.5px solid var(--ink);border-radius:3px;background:var(--paper2);color:var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .12s var(--ease),box-shadow .12s var(--ease);cursor:pointer;white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.ana{background:var(--seal);color:#fff;border-color:var(--ink)}
+.btn .ok{transition:transform .2s var(--ease)}
+.btn:hover .ok{transform:translateX(3px)}
+
+/* ---------- header ---------- */
+.ust{position:sticky;top:0;z-index:60;background:rgba(236,232,223,.86);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border-bottom:2.5px solid transparent;transition:border-color .25s}
+.ust.kaydi{border-bottom-color:var(--ink)}
+.ust .sar{display:flex;align-items:center;gap:20px;height:62px}
+.marka{display:flex;align-items:baseline;gap:12px}
+.marka b{font:700 23px/1 var(--cond);letter-spacing:.02em;text-transform:uppercase}
+.marka b span{color:var(--seal)}
+.marka small{font:400 10.5px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.menu{display:flex;gap:2px;margin-left:auto}
+.menu a{font:500 14.5px/1 var(--sans);color:var(--ink2);padding:9px 12px;border-radius:3px;transition:color .15s,background .15s}
+.menu a:hover{color:var(--ink);background:rgba(22,19,15,.06)}
+.menu a.etkin{color:var(--ink);box-shadow:inset 0 -2px 0 var(--seal)}
+.menu .menu-ac{display:none}
+.ust .ac{font:600 13.5px/1 var(--cond);letter-spacing:.07em;text-transform:uppercase;padding:11px 15px;border:2px solid var(--ink);border-radius:3px;background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--seal);transition:transform .12s,box-shadow .12s;white-space:nowrap}
+.ust .ac:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--seal)}
+.menu-dugme{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:3px;background:var(--paper2);cursor:pointer;align-items:center;justify-content:center}
+.menu-dugme span,.menu-dugme span::before,.menu-dugme span::after{display:block;width:18px;height:2px;background:var(--ink);position:relative;transition:transform .2s,background .2s}
+.menu-dugme span::before,.menu-dugme span::after{content:"";position:absolute;left:0}
+.menu-dugme span::before{top:-6px}.menu-dugme span::after{top:6px}
+.ust.acik .menu-dugme span{background:transparent}
+.ust.acik .menu-dugme span::before{transform:translateY(6px) rotate(45deg)}
+.ust.acik .menu-dugme span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.kahraman{padding:72px 0 40px}
+.kahraman .ust-satir{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:end}
+.kahraman h1{font-size:clamp(46px,7.2vw,98px);line-height:.98;margin-top:22px;font-weight:500;letter-spacing:-.028em}
+.kahraman h1 i{font-weight:400}
+.giris{margin:0 0 26px;font-size:19px;line-height:1.6;color:var(--ink2);text-wrap:pretty}
+.eylem{display:flex;gap:14px;flex-wrap:wrap}
+.olgular{display:flex;flex-wrap:wrap;gap:8px 22px;margin:26px 0 0;padding:0;list-style:none;font:400 12px/1.4 var(--mono);letter-spacing:.04em;color:var(--ink3)}
+.olgular li{display:flex;align-items:center;gap:8px}
+.olgular li::before{content:"";width:7px;height:7px;background:var(--seal);border:1.5px solid var(--ink)}
+
+/* stage */
+.sahne-ust{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:58px 0 14px}
+.canli{display:inline-flex;align-items:center;gap:9px;font:700 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.canli i{width:9px;height:9px;border-radius:50%;background:var(--seal);box-shadow:0 0 0 0 rgba(215,55,43,.5);animation:nabiz 2.2s infinite}
+@keyframes nabiz{0%{box-shadow:0 0 0 0 rgba(215,55,43,.45)}70%{box-shadow:0 0 0 9px rgba(215,55,43,0)}100%{box-shadow:0 0 0 0 rgba(215,55,43,0)}}
+.sahne-ust .not{font-size:14px;color:var(--ink3)}
+.sahne-ust .not em{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:16px}
+.sahne-ust .dis{font:600 13px/1 var(--cond);letter-spacing:.07em;text-transform:uppercase;border-bottom:2px solid var(--seal);padding-bottom:3px;white-space:nowrap}
+.cerceve{border:3px solid var(--ink);border-radius:4px;background:var(--paper2);box-shadow:10px 10px 0 var(--ink);overflow:hidden;position:relative}
+.cubuk{display:flex;align-items:center;gap:14px;padding:0 16px;height:46px;border-bottom:3px solid var(--ink);background:var(--paper)}
+.noktalar{display:flex;gap:6px;flex:none}
+.noktalar i{width:11px;height:11px;border:2px solid var(--ink);border-radius:2px;background:var(--paper2)}
+.noktalar i:first-child{background:var(--seal)}
+.yol{font:400 12px/1 var(--mono);color:var(--ink3);white-space:nowrap;flex:none}
+.anlatim{margin-left:auto;display:flex;align-items:center;gap:10px;min-width:0;font-size:14px;color:var(--ink2)}
+.anlatim b{font:700 11px/1 var(--mono);letter-spacing:.06em;color:#fff;background:var(--ink);padding:5px 7px;border-radius:2px;flex:none}
+.anlatim span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ekran{position:relative;height:700px;overflow:hidden;background:var(--paper)}
+.ekran iframe{position:absolute;left:0;top:0;border:0;display:block;width:100%;height:100%;transform-origin:0 0;background:var(--paper)}
+.imlec{position:absolute;left:0;top:0;width:26px;height:30px;pointer-events:none;z-index:3;opacity:0;transform:translate(60px,60px);transition:transform .7s cubic-bezier(.45,.05,.2,1),opacity .3s;filter:drop-shadow(2px 3px 0 rgba(22,19,15,.25))}
+.imlec.gorun{opacity:1}
+.imlec svg{width:26px;height:30px;display:block;transition:transform .12s}
+.imlec.bas svg{transform:scale(.86)}
+.halka{position:absolute;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border:3px solid var(--seal);border-radius:50%;pointer-events:none;z-index:2;opacity:0}
+.halka.pat{animation:pat .55s ease-out}
+@keyframes pat{0%{opacity:.9;transform:var(--yer) scale(.3)}100%{opacity:0;transform:var(--yer) scale(1.25)}}
+
+.adimlar{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;margin-top:26px}
+.adim{position:relative;text-align:left;border:2px solid var(--ink);border-radius:3px;background:var(--paper2);padding:11px 12px 13px;cursor:pointer;overflow:hidden;transition:background .2s,color .2s,transform .12s}
+.adim:hover{transform:translateY(-2px)}
+.adim .no{display:block;font:700 10.5px/1 var(--mono);color:var(--seal);letter-spacing:.06em;margin-bottom:7px}
+.adim b{display:block;font:600 13.5px/1.15 var(--cond);letter-spacing:.04em;text-transform:uppercase}
+.adim .kisa{display:none}
+.adim .dolgu{position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--seal);transform:scaleX(0);transform-origin:0 50%}
+.adim.etkin{background:var(--ink);color:var(--paper)}
+.adim.etkin .no{color:#ff8a7f}
+.adim.bitti .dolgu{transform:scaleX(1);opacity:.35}
+.adimlar.duraklat .dolgu{animation-play-state:paused!important}
+@keyframes dol{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.denetim{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;flex-wrap:wrap}
+.durum{margin:0;font-size:14.5px;color:var(--ink3)}
+.durum.sizde{color:var(--ink)}
+.durum.sizde::before{content:"✎ ";color:var(--seal)}
+.tekrar{font:600 13px/1 var(--cond);letter-spacing:.07em;text-transform:uppercase;border:2px solid var(--ink);background:transparent;border-radius:3px;padding:9px 13px;cursor:pointer}
+.tekrar:hover{background:var(--ink);color:var(--paper)}
+.tekrar[hidden]{display:none}
+
+/* ---------- who / contents ---------- */
+.neler{padding:120px 0 40px}
+.kimler{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:52px}
+.kim{border-top:3px solid var(--ink);padding-top:18px}
+.kim h3{font-size:25px;line-height:1.15;margin-bottom:8px}
+.kim p{margin:0;color:var(--ink2);font-size:16px}
+.icindekiler{margin-top:72px;border:2.5px solid var(--ink);background:var(--paper2);box-shadow:6px 6px 0 var(--ink);border-radius:3px;padding:30px 34px 26px}
+.icindekiler h3{font-size:15px;font-family:var(--mono);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:0 0 16px;display:flex;justify-content:space-between;gap:12px}
+.icindekiler h3 span{color:var(--ink3);font-weight:400;letter-spacing:.06em;text-transform:none}
+.icindekiler ol{list-style:none;margin:0;padding:0;columns:2;column-gap:56px}
+.icindekiler li{break-inside:avoid}
+.icindekiler a{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px dashed var(--soft)}
+.icindekiler a .rn{font:700 12px/1 var(--mono);color:var(--seal);width:34px;flex:none}
+.icindekiler a .ad{font-family:var(--serif);font-size:20px;line-height:1.2}
+.icindekiler a .ne{margin-left:auto;font-size:13.5px;color:var(--ink3);text-align:right}
+.icindekiler a:hover .ad{color:var(--seal)}
+
+/* ---------- feature rows ---------- */
+.satirlar{padding-top:40px;padding-bottom:30px}
+.satir{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center;padding:70px 0}
+.satir.ters{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.satir.ters .metin{order:2}
+.metin .no{font:700 12px/1 var(--mono);letter-spacing:.14em;color:var(--seal);text-transform:uppercase}
+.metin h3{font-size:clamp(30px,3.4vw,44px);line-height:1.06;margin:14px 0 16px}
+.metin p{margin:0 0 18px;color:var(--ink2);text-wrap:pretty}
+.liste{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.liste li{position:relative;padding-left:24px;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.liste li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:9px;border:2px solid var(--ink);background:var(--paper2);transform:rotate(45deg)}
+.liste li b{color:var(--ink);font-weight:600}
+.cipler{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.cip{font:400 11.5px/1 var(--mono);padding:5px 8px;border:1.5px solid currentColor;border-radius:2px}
+
+.dosya{position:relative;margin:0;padding-top:30px}
+.dosya .sekme{position:absolute;left:18px;top:0;height:32px;padding:0 16px;display:flex;align-items:center;gap:8px;font:600 12.5px/1 var(--cond);letter-spacing:.08em;text-transform:uppercase;background:var(--paper2);border:2.5px solid var(--ink);border-bottom:0;border-radius:4px 4px 0 0;z-index:1}
+.dosya .sekme i{width:8px;height:8px;background:var(--seal);border-radius:50%}
+.dosya .kagit{position:relative;border:2.5px solid var(--ink);border-radius:3px;background:var(--paper);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.dosya .kagit img{width:100%}
+.dosya figcaption{margin-top:18px;font-size:13.5px;color:var(--ink3);padding-left:4px}
+.dosya figcaption b{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-right:6px}
+.kirp{max-height:560px}
+.kirp::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(rgba(236,232,223,0),var(--paper));pointer-events:none}
+.ust-uste{position:relative;padding-bottom:150px}
+.ust-uste .on{position:absolute;right:-12px;bottom:0;width:58%;margin:0}
+.ust-uste .on .kagit{box-shadow:8px 8px 0 var(--seal)}
+
+/* bento */
+.bento-bas{padding-top:80px}
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px;margin-top:46px}
+.kutu{grid-column:span 4;border:2.5px solid var(--ink);border-radius:3px;background:var(--paper2);box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;overflow:hidden;scroll-margin-top:90px}
+.kutu.g7{grid-column:span 7}.kutu.g5{grid-column:span 5}.kutu.g6{grid-column:span 6}.kutu.g12{grid-column:span 12}
+.kutu .yazi{padding:24px 26px 20px}
+.kutu .ust-et{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--seal)}
+.kutu h3{font-size:27px;line-height:1.1;margin:10px 0 8px}
+.kutu p{margin:0;color:var(--ink2);font-size:15.5px;line-height:1.55}
+.kutu .gorsel{margin-top:auto;border-top:2.5px solid var(--ink);height:300px;overflow:hidden;background:var(--paper)}
+.kutu .gorsel img{width:100%;height:100%;object-fit:cover;object-position:left top}
+.kutu.koyu{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 var(--seal)}
+.kutu.koyu p{color:#c9c2b4}
+.kutu.koyu .ust-et{color:#ff8a7f}
+.kutu.koyu .gorsel{border-top-color:#5a5349}
+.gece{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);align-items:stretch}
+.gece .yazi{padding:34px 34px}
+.gece .yazi h3{font-size:34px}
+.gece .gorsel{margin:0;border-top:0;border-left:2.5px solid #5a5349;height:auto;min-height:340px}
+
+/* ---------- birth timeline ---------- */
+.dogus{padding:130px 0 90px;border-top:2.5px solid var(--ink);margin-top:110px;background:var(--paper2)}
+.dogus .izgara{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
+.dogus .yapis{position:sticky;top:110px}
+.dogus .yapis p{margin:18px 0 0;color:var(--ink2);font-size:18px}
+.dogus .yapis .kitap{margin-top:30px;display:flex;gap:14px;align-items:center;font-size:14px;color:var(--ink3)}
+.dogus .yapis .kitap em{display:block;font-family:var(--serif);font-size:22px;color:var(--ink);font-style:italic}
+.kapak{width:58px;height:78px;flex:none;border:2.5px solid var(--ink);background:var(--seal);box-shadow:4px 4px 0 var(--ink);position:relative;border-radius:2px 4px 4px 2px}
+.kapak::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:rgba(22,19,15,.45)}
+.kapak::after{content:"";position:absolute;left:16px;right:8px;top:18px;height:14px;border:1.5px solid rgba(255,255,255,.75)}
+.yolculuk{list-style:none;margin:0;padding:0;position:relative}
+.yolculuk::before{content:"";position:absolute;left:27px;top:10px;bottom:10px;width:3px;background:var(--ink)}
+.durak{position:relative;padding:0 0 46px 82px}
+.durak:last-child{padding-bottom:0}
+.muhur{position:absolute;left:0;top:0;width:57px;height:57px;border-radius:50%;background:var(--paper2);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font:700 15px/1 var(--mono);color:var(--ink);transition:background .3s,color .3s,transform .3s var(--ease)}
+.durak.gorundu .muhur{background:var(--seal);color:#fff}
+.durak .bolum{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding-top:6px}
+.durak h3{font-size:28px;line-height:1.12;margin:9px 0 8px}
+.durak > p{margin:0;color:var(--ink2);font-size:16.5px;max-width:560px}
+.alinti{margin-top:16px;border:2px solid var(--ink);border-left:7px solid var(--seal);border-radius:2px;background:var(--paper);padding:13px 16px;box-shadow:3px 3px 0 var(--ink);max-width:560px}
+.alinti small{display:block;font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
+.alinti q{quotes:none;font-family:var(--serif);font-size:18px;line-height:1.45}
+.alinti .sat{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:15px;align-items:center}
+.alinti .sat .cip{font-size:10.5px}
+.alinti .bar{height:12px;border:2px solid var(--ink);display:flex;margin:9px 0 6px;background:var(--paper2)}
+.alinti .bar span{display:block;height:100%}
+.alinti .mono{font:400 12.5px/1.5 var(--mono);color:var(--ink2)}
+
+/* ---------- privacy ---------- */
+.gizlilik{background:var(--ink);color:var(--paper);padding:120px 0}
+.gizlilik .etiket{color:#ff8a7f}
+.gizlilik .etiket::before{background:#ff8a7f}
+.gizlilik h2 i{color:#ff8a7f}
+.gizlilik .bas p{color:#c9c2b4}
+.ilkeler{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:56px;border-top:2px solid #4a443b}
+.ilke{padding:26px 24px 8px 0}
+.ilke + .ilke{padding-left:24px;border-left:2px solid #4a443b}
+.ilke svg{width:30px;height:30px;stroke:#ff8a7f;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ilke h3{font-size:23px;line-height:1.15;margin:16px 0 8px}
+.ilke p{margin:0;font-size:15px;color:#c9c2b4;line-height:1.55}
+.yedek{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:56px;align-items:center;margin-top:84px}
+.yedek h3{font-size:clamp(28px,3vw,38px);line-height:1.1;margin:12px 0 14px}
+.yedek p{margin:0 0 14px;color:#c9c2b4}
+.yedek .liste li{color:#c9c2b4}
+.yedek .liste li b{color:var(--paper)}
+.yedek .liste li::before{border-color:#ff8a7f;background:transparent}
+.yedek .dosya .sekme{background:var(--paper2);color:var(--ink)}
+.yedek .dosya .kagit{box-shadow:8px 8px 0 var(--seal)}
+.durust{margin-top:22px;border:2px dashed #6b6357;border-radius:3px;padding:14px 16px;font-size:14.5px;color:#d9d2c4;line-height:1.55}
+.durust b{color:var(--paper)}
+
+/* ---------- FAQ ---------- */
+.sss{padding:120px 0}
+.sss .izgara{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
+.sorular{border-top:2.5px solid var(--ink)}
+.sorular details{border-bottom:2.5px solid var(--ink)}
+.sorular summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 2px;font-family:var(--serif);font-size:22px;line-height:1.3;font-weight:500}
+.sorular summary::-webkit-details-marker{display:none}
+.sorular summary i{flex:none;width:30px;height:30px;border:2px solid var(--ink);border-radius:2px;position:relative;transition:background .2s,transform .3s var(--ease)}
+.sorular summary i::before,.sorular summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
+.sorular summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s var(--ease)}
+.sorular details[open] summary i{background:var(--seal);border-color:var(--ink)}
+.sorular details[open] summary i::before,.sorular details[open] summary i::after{background:#fff}
+.sorular details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.sorular summary:hover{color:var(--seald)}
+.cevap{padding:0 50px 24px 2px;color:var(--ink2);font-size:16.5px}
+.cevap p{margin:0 0 10px}
+.cevap p:last-child{margin:0}
+
+/* ---------- closing ---------- */
+.kapanis{padding:0 0 110px}
+.bant{border:3px solid var(--ink);border-radius:4px;background:var(--seal);color:#fff;box-shadow:12px 12px 0 var(--ink);padding:64px 60px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end;position:relative;overflow:hidden}
+.bant::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(22,19,15,.9) .9px,transparent 1px);background-size:7px 7px;opacity:.14;pointer-events:none}
+.bant > *{position:relative}
+.bant .etiket{color:#fff}.bant .etiket::before{background:#fff}
+.bant h2{margin-top:18px;color:#fff}
+.bant h2 i{color:var(--ink)}
+.bant p{margin:18px 0 0;font-size:18px;color:#fff3f1;max-width:560px}
+.bant .eylem{justify-content:flex-end}
+.bant .btn{background:var(--paper2);color:var(--ink)}
+.bant .btn.koyu{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:4px 4px 0 var(--paper2)}
+
+footer{border-top:2.5px solid var(--ink);padding:30px 0 40px}
+footer .sar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer p{margin:0;font-size:14px;color:var(--ink3)}
+footer p b{color:var(--ink);font-weight:600}
+footer nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+footer nav a{color:var(--ink2);border-bottom:1.5px solid transparent}
+footer nav a:hover{color:var(--ink);border-bottom-color:var(--seal)}
+
+/* reveal (only when JS + motion allowed) */
+.hareket [data-ac]{transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.hareket [data-ac].bekle{opacity:0;transform:translateY(18px)}
+
+/* ---------- responsive ---------- */
+/* left-edge Perabayt tab (26px) must never touch text */
+@media (max-width:1260px){:root{--gut:40px}}
+@media (max-width:1080px){
+  .menu{display:none}
+  .menu-dugme{display:inline-flex;margin-left:auto}
+  .ust .ac{display:none}
+  .ust.acik .menu{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:62px;background:var(--paper2);border-bottom:2.5px solid var(--ink);padding:10px var(--gut) 18px;gap:2px;box-shadow:0 10px 0 rgba(22,19,15,.06)}
+  .ust.acik .menu a{font-size:17px;padding:13px 6px;border-bottom:1px dashed var(--soft)}
+  .ust.acik .menu .menu-ac{display:block;margin-top:10px;text-align:center;background:var(--ink);color:var(--paper);border:0;font:600 15px/1 var(--cond);letter-spacing:.07em;text-transform:uppercase;padding:15px}
+  .kahraman .ust-satir{grid-template-columns:1fr;gap:26px}
+  .adimlar{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .satir,.satir.ters{grid-template-columns:1fr;gap:34px;padding:52px 0}
+  .satir.ters .metin{order:0}
+  .metin{max-width:680px}
+  .bento .kutu,.bento .kutu.g7,.bento .kutu.g5{grid-column:span 6}
+  .bento .kutu.g12{grid-column:span 12}
+  .dogus .izgara,.sss .izgara{grid-template-columns:1fr;gap:40px}
+  .dogus .yapis{position:static}
+  .ilkeler{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ilke:nth-child(3){padding-left:0;border-left:0}
+  .yedek{grid-template-columns:1fr;gap:40px}
+  .bant{grid-template-columns:1fr;padding:48px 40px}
+  .bant .eylem{justify-content:flex-start}
+}
+@media (max-width:760px){
+  :root{--gut:18px}
+  body{font-size:16.5px}
+  .ust .sar{height:58px}
+  .ust.acik .menu{top:58px}
+  .marka small{display:none}
+  .kahraman{padding:40px 0 24px}
+  .kahraman h1{font-size:clamp(40px,11.4vw,58px);margin-top:16px}
+  .giris{font-size:17px}
+  .eylem .btn{flex:1 1 auto;justify-content:center}
+  .sahne-ust{margin-top:44px;flex-direction:column;align-items:flex-start;gap:8px}
+  .cerceve{box-shadow:6px 6px 0 var(--ink)}
+  .cubuk{height:auto;min-height:44px;padding:9px 12px;gap:10px}
+  .yol{display:none}
+  .anlatim{margin-left:0;font-size:13px}
+  .anlatim span{white-space:normal;overflow:visible;line-height:1.35}
+  .adimlar{gap:6px;margin-top:20px}
+  .adim{padding:9px 8px 11px}
+  .adim b{font-size:12px}
+  .adim .uzun{display:none}.adim .kisa{display:block}
+  .neler{padding:84px 0 20px}
+  .kimler{grid-template-columns:1fr;gap:18px;margin-top:36px}
+  .icindekiler{padding:22px 18px 16px;margin-top:52px;box-shadow:5px 5px 0 var(--ink)}
+  .icindekiler ol{columns:1}
+  .icindekiler h3 span{display:none}
+  .icindekiler a .ad{font-size:18px}
+  .icindekiler a .ne{display:none}
+  .satir,.satir.ters{padding:40px 0;gap:26px}
+  .dosya .kagit{box-shadow:5px 5px 0 var(--ink)}
+  .kirp{max-height:440px}
+  .ust-uste{padding-bottom:0}
+  .ust-uste .on{position:relative;right:auto;width:86%;margin:-40px 0 0 auto}
+  .bento{gap:18px;margin-top:34px}
+  .bento .kutu,.bento .kutu.g7,.bento .kutu.g5,.bento .kutu.g6{grid-column:span 12}
+  .kutu .gorsel{height:240px}
+  .gece{grid-template-columns:1fr}
+  .gece .yazi{padding:24px 22px}
+  .gece .gorsel{border-left:0;border-top:2.5px solid #5a5349;min-height:0;height:240px}
+  .dogus{padding:84px 0 70px;margin-top:70px}
+  .yolculuk::before{left:20px}
+  .durak{padding:0 0 38px 60px}
+  .muhur{width:43px;height:43px;font-size:12.5px}
+  .durak h3{font-size:24px}
+  .alinti q{font-size:16.5px}
+  .gizlilik{padding:84px 0}
+  .ilkeler{grid-template-columns:1fr;margin-top:40px}
+  .ilke,.ilke + .ilke{padding:22px 0 18px;border-left:0;border-bottom:2px solid #4a443b}
+  .sss{padding:84px 0}
+  .sorular summary{font-size:19px;padding:18px 0}
+  .cevap{padding:0 0 20px}
+  .kapanis{padding-bottom:80px}
+  .bant{padding:38px 22px;box-shadow:6px 6px 0 var(--ink)}
+  .bant .eylem .btn{flex:1 1 100%}
+  footer .sar{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="atla" href="#ana">İçeriğe geç</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-dis" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="ust" id="ust">
+  <div class="sar">
+    <a class="marka" href="#canli" aria-label="Perabook, başa dön"><b>Pera<span>book</span></b><small>Hikâye dosyası</small></a>
+    <nav class="menu" id="menu" aria-label="Bölümler">
+      <a href="#canli">Canlı dosya</a>
+      <a href="#neler">Neler var</a>
+      <a href="#dogus">Romanın doğuşu</a>
+      <a href="#gizlilik">Gizlilik</a>
+      <a href="#sss">SSS</a>
+      <a class="menu-ac" href="uygulama/">Hikâye dosyasını aç</a>
+    </nav>
+    <a class="ac" href="uygulama/">Dosyayı aç</a>
+    <button class="menu-dugme" id="menu-dugme" aria-label="Menüyü aç" aria-expanded="false" aria-controls="menu"><span></span></button>
+  </div>
+</header>
+
+<main id="ana">
+<!-- ============ HERO ============ -->
+<section class="kahraman" id="canli" aria-labelledby="baslik">
+  <div class="sar">
+    <div class="ust-satir">
+      <div>
+        <span class="etiket">Romancılar ve senaristler için</span>
+        <h1 id="baslik">Hikâyenizin bütün iplerini <i>tek masada</i> tutun.</h1>
+      </div>
+      <div>
+        <p class="giris">Perabook bir hikâye dosyası: karakterler, ilişkiler, dünya, sahneler ve bölüm iskeleti aynı yerde, birbirine bağlı. Tarayıcıda açılır, hesap istemez; yazdığınız her şey kendi bilgisayarınızda kalır.</p>
+        <div class="eylem">
+          <a class="btn ana" href="uygulama/">Hikâye dosyasını aç <svg class="ok" width="18" height="18" aria-hidden="true"><use href="#i-ok"/></svg></a>
+          <a class="btn" href="#neler">Neler var</a>
+        </div>
+        <ul class="olgular">
+          <li>12 bölüm, tek dosya</li>
+          <li>Hesap ve kurulum yok</li>
+          <li>JSON · Markdown · PDF</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sahne-ust">
+      <span class="canli"><i></i>Canlı uygulama</span>
+      <span class="not">Örnek dosya: <em>Kuzguncuk'ta kayıp saat</em> · yedi karakter, on sahne</span>
+      <a class="dis" href="uygulama/" target="_blank" rel="noopener">Tam ekranda aç ↗</a>
+    </div>
+    <div class="cerceve" id="cerceve">
+      <div class="cubuk">
+        <span class="noktalar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="yol">perabook / kuzguncukta-kayip-saat</span>
+        <span class="anlatim" aria-hidden="true"><b id="anlatim-no">01/08</b><span id="anlatim">Genel bakış: hikâyenin durumu tek ekranda.</span></span>
+      </div>
+      <div class="ekran" id="ekran">
+        <iframe id="uyg" src="uygulama/" title="Perabook uygulaması, örnek hikâye dosyasıyla canlı" loading="eager"></iframe>
+        <div class="halka" id="halka" aria-hidden="true"></div>
+        <div class="imlec" id="imlec" aria-hidden="true"><svg viewBox="0 0 26 30"><path d="M3 2.5 22 17.6l-8.4 1.2 4.6 8.6-3.6 1.9-4.6-8.7L3.6 26.8z" fill="#16130F" stroke="#F6F3EC" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      </div>
+    </div>
+
+    <div class="adimlar" id="adimlar" role="group" aria-label="Tur adımları">
+      <button class="adim" data-adim="0"><span class="no">01</span><b><span class="uzun">Genel bakış</span><span class="kisa">Bakış</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="1"><span class="no">02</span><b><span class="uzun">Karakterler</span><span class="kisa">Karakter</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="2"><span class="no">03</span><b><span class="uzun">İlişki tahtası</span><span class="kisa">İlişki</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="3"><span class="no">04</span><b><span class="uzun">Sahneler</span><span class="kisa">Sahne</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="4"><span class="no">05</span><b><span class="uzun">Zaman çizelgesi</span><span class="kisa">Zaman</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="5"><span class="no">06</span><b><span class="uzun">Akış şeması</span><span class="kisa">Akış</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="6"><span class="no">07</span><b><span class="uzun">Harita</span><span class="kisa">Harita</span></b><span class="dolgu"></span></button>
+      <button class="adim" data-adim="7"><span class="no">08</span><b><span class="uzun">Her şeyde ara</span><span class="kisa">Arama</span></b><span class="dolgu"></span></button>
+    </div>
+    <div class="denetim">
+      <p class="durum" id="durum" aria-live="polite">Tur kendiliğinden oynuyor. Uygulamaya tıkladığınızda durur, dosya sizin olur.</p>
+      <button class="tekrar" id="tekrar" hidden>Turu yeniden oynat</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NELER VAR ============ -->
+<section class="neler" id="neler" aria-labelledby="neler-baslik">
+  <div class="sar">
+    <div class="bas" data-ac>
+      <span class="etiket">Neler var</span>
+      <h2 id="neler-baslik">Yazarken aklınızda tuttuğunuz her şeyin <i>bir yeri var.</i></h2>
+      <p>Defter kenarlarına, telefon notlarına, dağınık belgelere bölünen bilgiler Perabook'ta on iki bölümde toplanır. Bir karakterin adı geçtiği her yerde aynı karakterdir; bir sahne hem kartta, hem iskelette, hem genel bakışta görünür.</p>
+    </div>
+    <div class="kimler">
+      <div class="kim" data-ac><h3>Romancılar için</h3><p>Karakter dosyaları, dünya sayfaları, bölüm iskeleti ve her sahnenin taslak metni; kelime hedefiyle birlikte.</p></div>
+      <div class="kim" data-ac><h3>Senaristler için</h3><p>Mekânı, oyuncuları ve durumu belli sahne kartları; kanban panosu ve dallanan olay örgüsü için akış şeması.</p></div>
+      <div class="kim" data-ac><h3>Dünya kuranlar için</h3><p>Kendi haritanız üzerinde pinler, terimler sözlüğü, kronolojik zaman çizelgesi ve kategorili dünya sayfaları.</p></div>
+    </div>
+
+    <nav class="icindekiler" aria-labelledby="icindekiler-baslik" data-ac>
+      <h3 id="icindekiler-baslik">İçindekiler <span>Uygulamanın on iki bölümü</span></h3>
+      <ol>
+        <li><a href="#k-genel"><span class="rn">I</span><span class="ad">Genel bakış</span><span class="ne">sayılar, ilerleme, hedef</span></a></li>
+        <li><a href="#karakterler"><span class="rn">II</span><span class="ad">Karakterler</span><span class="ne">hedef, sır, galeri</span></a></li>
+        <li><a href="#iliskiler"><span class="rn">III</span><span class="ad">İlişkiler</span><span class="ne">sürüklenen tahta</span></a></li>
+        <li><a href="#k-dunya"><span class="rn">IV</span><span class="ad">Dünya</span><span class="ne">mekân, grup, sistem, tarih</span></a></li>
+        <li><a href="#sahneler"><span class="rn">V</span><span class="ad">Sahneler</span><span class="ne">kart, kanban, taslak</span></a></li>
+        <li><a href="#iskelet"><span class="rn">VI</span><span class="ad">İskelet</span><span class="ne">bölüm › olay › sahne</span></a></li>
+        <li><a href="#k-sozluk"><span class="rn">VII</span><span class="ad">Sözlük</span><span class="ne">terimler, tanımlar</span></a></li>
+        <li><a href="#k-fikirler"><span class="rn">VIII</span><span class="ad">Fikirler</span><span class="ne">tarihli hızlı notlar</span></a></li>
+        <li><a href="#k-zaman"><span class="rn">IX</span><span class="ad">Zaman çizelgesi</span><span class="ne">olaylar, sıra sizde</span></a></li>
+        <li><a href="#akis"><span class="rn">X</span><span class="ad">Akış şeması</span><span class="ne">dallanan olay örgüsü</span></a></li>
+        <li><a href="#k-harita"><span class="rn">XI</span><span class="ad">Harita</span><span class="ne">görsel ve pinler</span></a></li>
+        <li><a href="#yedek"><span class="rn">XII</span><span class="ad">Ayarlar</span><span class="ne">yedek ve dışa aktarım</span></a></li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="sar satirlar">
+    <!-- Karakterler -->
+    <div class="satir" id="karakterler">
+      <div class="metin" data-ac>
+        <span class="no">II · Karakterler</span>
+        <h3>Her karakterin <i>kendi dosyası</i> var.</h3>
+        <p>Rolü, yaşı, aidiyeti ve durumu; huyları ve etiketleri; ne istediği ve neyi sakladığı. Kartlar renkli bir kenarla ayrılır, favoriler ve etiketlerle süzülür.</p>
+        <ul class="liste">
+          <li><b>Hedef ve sır</b> ayrı alanlar: Leyla'nın aradığı dedesi, kimseye söylemediği işten çıkarılması.</li>
+          <li><b>Durum:</b> yaşıyor, öldü, kayıp ya da bilinmiyor.</li>
+          <li><b>Portre ve galeri:</b> ifadeler, kostümler, referans görseller.</li>
+          <li><b>Etiket ve arama:</b> "ana kadro", "şüpheli", "tanık" gibi gruplara tek tıkla süzme.</li>
+        </ul>
+      </div>
+      <figure class="dosya" data-ac>
+        <span class="sekme"><i></i>Karakterler</span>
+        <div class="kagit"><img src="ekran/karakterler.webp" width="1548" height="1071" loading="lazy" alt="Perabook karakter kartları: Leyla Arıkan, Rıza Usta, Selim Doğan ve Nesrin Hanım; rol, yaş, özellikler ve etiketlerle"></div>
+        <figcaption><b>Örnek dosya</b>Yedi karakter; kartlardaki kırmızı adlar başka kayıtlara bağlantı.</figcaption>
+      </figure>
+    </div>
+
+    <!-- İlişkiler -->
+    <div class="satir ters" id="iliskiler">
+      <div class="metin" data-ac>
+        <span class="no">III · İlişkiler</span>
+        <h3>Kim kime ne, <i>bir tahtada.</i></h3>
+        <p>Karakterler düğüm olur, bağlar renkli çizgi. Düğümleri sürükleyip tahtayı kafanızdaki gibi dizersiniz; yerleri kaydedilir.</p>
+        <ul class="liste">
+          <li><b>Yedi bağ türü:</b> aşk, aile, dost, rakip, düşman, müttefik ve diğer; her biri kendi renginde.</li>
+          <li><b>İki yön ayrı:</b> Leyla için Selim bir müttefik, Selim için Leyla bir rakip.</li>
+          <li><b>Not alanı:</b> ilişkinin geçmişi bağın yanında durur.</li>
+        </ul>
+        <div class="cipler" aria-label="Bağ türleri">
+          <span class="cip" style="color:#D7372B">Aşk</span><span class="cip" style="color:#2F6B4F">Aile</span><span class="cip" style="color:#2563A8">Dost</span><span class="cip" style="color:#A86800">Rakip</span><span class="cip" style="color:#7A1F1A">Düşman</span><span class="cip" style="color:#5C4B8A">Müttefik</span><span class="cip" style="color:#4A453E">Diğer</span>
+        </div>
+      </div>
+      <figure class="dosya" data-ac>
+        <span class="sekme"><i></i>İlişki tahtası</span>
+        <div class="kagit"><img src="ekran/iliskiler.webp" width="1548" height="925" loading="lazy" alt="İlişki tahtası: yedi karakter düğümü ve aralarında aile, dost, müttefik, düşman ve aşk bağları"></div>
+        <figcaption><b>Örnek dosya</b>Dokuz bağ: Nesrin ile Rıza Usta arasında yarım kalmış bir nişan.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Bağlantılar / detay -->
+    <div class="satir" id="baglanti">
+      <div class="metin" data-ac>
+        <span class="no">Çapraz bağlantı</span>
+        <h3>Bir adı <i>çift köşeli parantezle</i> yazın.</h3>
+        <p>Biyografide, dünya sayfasında ya da sahne özetinde <span class="bag">[[Rıza Usta]]</span> yazdığınızda ad tıklanabilir olur ve sizi ilgili kayda götürür.</p>
+        <ul class="liste">
+          <li><b>Karakter detay sayfası</b> o karakterin bütün ilişkilerini, rol aldığı sahneleri ve adının geçtiği zaman çizelgesi olaylarını tek yerde toplar.</li>
+          <li><b>Her şeyde ara:</b> <kbd>Ctrl</kbd> <kbd>K</kbd> ile karakter, dünya sayfası, sahne, bölüm, olay, terim ve fikir aynı listede.</li>
+        </ul>
+      </div>
+      <figure class="dosya" data-ac>
+        <span class="sekme"><i></i>Leyla Arıkan</span>
+        <div class="kagit kirp"><img src="ekran/karakter-detay.webp" width="1548" height="1940" loading="lazy" alt="Leyla Arıkan'ın detay sayfası: hedef, sır, geçmiş ve dört ilişkisi; Rıza Usta ve Kuzguncuk İskelesi bağlantı olarak işaretli"></div>
+        <figcaption><b>Detay</b>Hedef, sır, geçmiş; altında ilişkiler, sahneler ve olaylar.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Sahneler -->
+    <div class="satir ters" id="sahneler">
+      <div class="metin" data-ac>
+        <span class="no">V · Sahneler</span>
+        <h3>Sahne kartı, kanban, <i>taslak metin.</i></h3>
+        <p>Her sahnenin mekânı, oyuncuları, hikâye yayı ve etiketleri var. Kart görünümünde sürükleyerek sıralarsınız; kanban'da bir kartı sütundan sütuna taşıyınca durumu değişir.</p>
+        <ul class="liste">
+          <li><b>Dört durum:</b> fikir, taslak, yazılıyor, bitti; durum ve yaya göre süzme.</li>
+          <li><b>Taslak metin sekmesi:</b> sahneyi doğrudan yazarsınız, kelime ve karakter sayısı anında görünür.</li>
+          <li><b>Notlar:</b> "Selim'in Kerem'e telefonu sahnenin sonunda" gibi kendinize hatırlatmalar.</li>
+        </ul>
+      </div>
+      <div class="ust-uste" data-ac>
+        <figure class="dosya">
+          <span class="sekme"><i></i>Kanban</span>
+          <div class="kagit"><img src="ekran/kanban.webp" width="1548" height="778" loading="lazy" alt="Sahneler kanban panosu: Fikir, Taslak, Yazılıyor ve Bitti sütunlarında on sahne kartı"></div>
+        </figure>
+        <figure class="dosya on">
+          <span class="sekme"><i></i>Kepenk · taslak</span>
+          <div class="kagit"><img src="ekran/taslak.webp" width="1280" height="1186" loading="lazy" alt="Kepenk sahnesinin taslak metni: 93 kelime, 642 karakter"></div>
+        </figure>
+      </div>
+    </div>
+
+    <!-- İskelet -->
+    <div class="satir" id="iskelet">
+      <div class="metin" data-ac>
+        <span class="no">VI · İskelet</span>
+        <h3>Bölüm, olay noktası, <i>sahne.</i></h3>
+        <p>Romanın omurgası üç kat: bölümler, her bölümün olay noktaları ve o noktayı karşılayan sahne. Bir olay noktasını listeden bir sahneye bağlarsınız; bağlı sahneye tıklayınca sahneler açılır.</p>
+        <ul class="liste">
+          <li><b>Sürükleyerek sıralama:</b> bölümler başlık çubuğundan taşınır, numaralar (B01, B02…) kendiliğinden güncellenir.</li>
+          <li><b>Enter ile olay noktası:</b> düşündüğünüz an yazın, sonra yerini bulun.</li>
+          <li><b>Boşluklar görünür:</b> sahnesi olmayan olay noktası, yazılmayı bekleyen yerdir.</li>
+        </ul>
+      </div>
+      <figure class="dosya" data-ac>
+        <span class="sekme"><i></i>İskelet</span>
+        <div class="kagit"><img src="ekran/iskelet.webp" width="1548" height="956" loading="lazy" alt="İskelet görünümü: B01 Durmuş Saat ve B02 Defterdeki Ev bölümleri, olay noktaları ve bağlı sahneler"></div>
+        <figcaption><b>Örnek dosya</b>Dört bölüm, on iki olay noktası.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Akış -->
+    <div class="satir ters" id="akis">
+      <div class="metin" data-ac>
+        <span class="no">X · Akış şeması</span>
+        <h3>Yolun <i>çatallandığı</i> yerleri çizin.</h3>
+        <p>Başlangıç, olay, seçim ve son düğümlerini tuvale koyar, "Bağla" ile oklarla birleştirirsiniz. Bir düğümden birden çok ok çıkınca hikâye dallanır; her dala "Evet", "Hayır" gibi bir ad verilir.</p>
+        <ul class="liste">
+          <li><b>Polisiye ve gerilim</b> için alternatif kurguları yan yana görmek.</li>
+          <li><b>İnteraktif anlatı ve oyun</b> senaryolarında seçimlerin nereye çıktığını izlemek.</li>
+          <li>Düğümleri sürükleyin, üstüne tıklayıp adını ve türünü değiştirin.</li>
+        </ul>
+      </div>
+      <figure class="dosya" data-ac>
+        <span class="sekme"><i></i>Akış şeması</span>
+        <div class="kagit"><img src="ekran/akis.webp" width="1680" height="1280" loading="lazy" alt="Akış şeması: Atölye kapalı başlangıcından Polise mi seçimine, oradan iki dala ve iki sona giden dokuz düğüm"></div>
+        <figcaption><b>Örnek dosya</b>Bir seçim, iki dal, iki son: "Rıza bulunur" ya da "Sır gömülür".</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Bento -->
+  <div class="sar bento-bas">
+    <div class="bas" data-ac>
+      <span class="etiket">Masanın geri kalanı</span>
+      <h2>Küçük ama <i>her gün</i> lazım olanlar.</h2>
+    </div>
+    <div class="bento">
+      <article class="kutu g7" id="k-genel" data-ac>
+        <div class="yazi"><span class="ust-et">I · Genel bakış</span><h3>Nerede olduğunuzu bilin.</h3><p>Her bölümün sayısı, sahnelerin durumlara göre dağılımı ve bütün taslakların toplam kelimesi; kendi koyduğunuz hedefe karşı.</p></div>
+        <div class="gorsel"><img src="ekran/genel.webp" width="1548" height="1272" loading="lazy" alt="Genel bakış: yedi karakter, dokuz ilişki, on sahne; yazım ilerlemesi çubuğu ve 247 / 1.000 kelime hedefi"></div>
+      </article>
+      <article class="kutu g5" id="k-ara" data-ac>
+        <div class="yazi"><span class="ust-et">Ctrl K · Arama</span><h3>Her şeyde ara.</h3><p>"saat" yazın: karakter, mekân, sahne, bölüm, olay ve terimler aynı listede, türüyle birlikte.</p></div>
+        <div class="gorsel"><img src="ekran/ara.webp" width="1040" height="1004" loading="lazy" alt="Komut paleti: saat araması için Rıza Usta, Arıkan Saat Atölyesi, Durmuş Saatler Gecesi ve diğer sonuçlar"></div>
+      </article>
+      <article class="kutu" id="k-dunya" data-ac>
+        <div class="yazi"><span class="ust-et">IV · Dünya</span><h3>Mekânlar, gruplar, kurallar.</h3><p>Mekân, klan/grup, sistem, tarih ve diğer kategorilerinde görselli wiki sayfaları.</p></div>
+        <div class="gorsel"><img src="ekran/dunya-dar.webp" width="866" height="875" loading="lazy" alt="Dünya sayfaları: Arıkan Saat Atölyesi, Kuzguncuk İskelesi, Eski Harf Sahafı, Mavi Yalı"></div>
+      </article>
+      <article class="kutu" id="k-zaman" data-ac>
+        <div class="yazi"><span class="ust-et">IX · Zaman çizelgesi</span><h3>Geçmişi sıraya koyun.</h3><p>Tarih ya da çağ, başlık ve açıklama; yıl 1023 de olur, "bahar" da. Sırayı siz belirlersiniz.</p></div>
+        <div class="gorsel"><img src="ekran/zaman-dar.webp" width="860" height="896" loading="lazy" alt="Zaman çizelgesi: 1971 atölye açılır, 1974 yarım kalan nişan, 1987 Durmuş Saatler Gecesi ve 2026 olayları"></div>
+      </article>
+      <article class="kutu" id="k-harita" data-ac>
+        <div class="yazi"><span class="ust-et">XI · Harita</span><h3>Kendi haritanız, kendi pinleriniz.</h3><p>Bir görsel yükleyin, tıkladığınız yere pin düşsün; pinlere ad verin.</p></div>
+        <div class="gorsel"><img src="ekran/harita.webp" width="1548" height="1055" loading="lazy" alt="Kuzguncuk haritası üzerinde Saat Atölyesi, Eski Harf, Mavi Yalı, Karakol ve İskele pinleri"></div>
+      </article>
+      <article class="kutu g6" id="k-sozluk" data-ac>
+        <div class="yazi"><span class="ust-et">VII · Sözlük</span><h3>Dünyanızın dili.</h3><p>Kendi terimleriniz ve tanımları, Türkçe alfabe sırasıyla; aramayla bir anda bulunur.</p></div>
+        <div class="gorsel"><img src="ekran/sozluk.webp" width="1548" height="1116" loading="lazy" alt="Sözlük: Akrep, Durmuş saat, Eski Harf, Kurmalı Şifre ve diğer terimler"></div>
+      </article>
+      <article class="kutu g6" id="k-fikirler" data-ac>
+        <div class="yazi"><span class="ust-et">VIII · Fikirler</span><h3>Kıvılcımı kaybetmeyin.</h3><p>Yazın, Enter'a basın; fikir tarihiyle kaydedilir. Son dördü genel bakışta da durur.</p></div>
+        <div class="gorsel"><img src="ekran/fikirler.webp" width="1548" height="856" loading="lazy" alt="Fikirler listesi: tarih damgalı altı not"></div>
+      </article>
+      <article class="kutu koyu g12 gece" data-ac>
+        <div class="yazi"><span class="ust-et">Gece teması</span><h3>Gece yazanlar için.</h3><p>Kenar çubuğundaki tek düğmeyle koyu kâğıda geçin; seçiminiz hatırlanır.</p></div>
+        <div class="gorsel"><img src="ekran/gece.webp" width="2560" height="1440" loading="lazy" alt="Perabook gece teması: koyu zemin üzerinde karakter kartları"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BİR ROMANIN DOĞUŞU ============ -->
+<section class="dogus" id="dogus" aria-labelledby="dogus-baslik">
+  <div class="sar izgara">
+    <div class="yapis" data-ac>
+      <span class="etiket">Fikirden bölüme</span>
+      <h2 id="dogus-baslik" style="margin-top:18px">Bir romanın <i>doğuşu.</i></h2>
+      <p>Bir cümlelik kıvılcımdan yazılmış bir bölüme giden yol, Perabook'ta on durakta ilerler. Her durağın yanındaki satırlar örnek dosyadan.</p>
+      <div class="kitap"><span class="kapak" aria-hidden="true"></span><span>Örnek dosya<em>Kuzguncuk'ta kayıp saat</em></span></div>
+    </div>
+    <ol class="yolculuk">
+      <li class="durak" data-ac><span class="muhur">01</span><div class="bolum">Fikirler</div><h3>Kıvılcım düşer.</h3><p>Aklınıza geleni yazıp Enter'a basarsınız. Henüz yeri belli değil; ama kaybolmaz, tarihiyle bekler.</p>
+        <div class="alinti"><small>Fikir</small><q>Her bölüm bir saatin kurulmasıyla başlasın.</q></div></li>
+      <li class="durak" data-ac><span class="muhur">02</span><div class="bolum">Karakterler</div><h3>Bir yüz, bir hedef, bir sır.</h3><p>Ana karakter dosyasını açarsınız. Ne istediğini ve neyi sakladığını ayrı ayrı yazmak, sahnelerdeki gerilimi baştan kurar.</p>
+        <div class="alinti"><small>Leyla Arıkan · sır</small><q>İstanbul'a dönmesinin asıl sebebi işten çıkarılması; kimseye söylemedi.</q></div></li>
+      <li class="durak" data-ac><span class="muhur">03</span><div class="bolum">İlişkiler</div><h3>İpler birbirine bağlanır.</h3><p>Tahtaya yeni bir bağ eklersiniz. İki tarafın birbirini nasıl gördüğü ayrı seçilir.</p>
+        <div class="alinti"><small>Bağ</small><div class="sat"><b>Leyla → Selim</b><span class="cip" style="color:#5C4B8A">Müttefik</span><span class="cip" style="color:#A86800">↩ Rakip</span></div></div></li>
+      <li class="durak" data-ac><span class="muhur">04</span><div class="bolum">Dünya ve sözlük</div><h3>Mekânın kuralları yazılır.</h3><p>Atölyenin bir dünya sayfası olur; o dünyaya ait sözcük sözlüğe girer.</p>
+        <div class="alinti"><small>Terim · Kurmalı Şifre</small><q>İbreler doğru saate getirilince açılan gizli mandal sistemi.</q></div></li>
+      <li class="durak" data-ac><span class="muhur">05</span><div class="bolum">Zaman çizelgesi</div><h3>Geçmiş sıraya girer.</h3><p>Romanın başladığı günden önce olanları kronolojiye dizersiniz. Karakterin detay sayfası, adının geçtiği olayları kendisi toplar.</p>
+        <div class="alinti"><small>Olay</small><div class="sat"><span class="mono">1987, şubat · 03.17</span><b>Durmuş Saatler Gecesi</b></div></div></li>
+      <li class="durak" data-ac><span class="muhur">06</span><div class="bolum">Akış şeması</div><h3>Yol çatallanır.</h3><p>Kahramanın vereceği kararı bir seçim düğümüne koyar, iki dalın sonunu ayrı ayrı görürsünüz.</p>
+        <div class="alinti"><small>Seçim · Polise mi?</small><div class="sat"><span class="cip">Evet</span> Selim'le iz <span class="cip">Hayır</span> Tek başına</div></div></li>
+      <li class="durak" data-ac><span class="muhur">07</span><div class="bolum">İskelet</div><h3>Bölümler kurulur.</h3><p>Olay noktalarını bölümlere dağıtır, her birini onu karşılayan sahneye bağlarsınız.</p>
+        <div class="alinti"><small>B01 · Durmuş Saat</small><div class="mono">› Leyla Kuzguncuk'a döner, atölye kapalıdır. <span style="color:var(--seal)">🎬 Kepenk</span><br>› Kırk ikinci saat 03.17'de durmuştur. <span style="color:var(--seal)">🎬 Kırk birinci saat</span></div></div></li>
+      <li class="durak" data-ac><span class="muhur">08</span><div class="bolum">Sahneler</div><h3>Sahne yazılır.</h3><p>Kartın taslak sekmesinde metni yazarsınız; sahne bitince durumunu "Bitti"ye çekersiniz.</p>
+        <div class="alinti"><small>Kepenk · Bitti · 93 kelime</small><q>Kepenk, kırk yılın pasını tek bir gıcırtıda boşalttı.</q></div></li>
+      <li class="durak" data-ac><span class="muhur">09</span><div class="bolum">Genel bakış</div><h3>Nerede olduğunuzu görürsünüz.</h3><p>Hangi sahneler bitti, hangileri fikir aşamasında, hedefe ne kadar kaldı.</p>
+        <div class="alinti"><small>Yazım ilerlemesi</small>
+          <div class="bar" aria-hidden="true"><span style="width:20%;background:#4A453E"></span><span style="width:30%;background:#C57A00"></span><span style="width:20%;background:#2563A8"></span><span style="width:30%;background:#2F6B4F"></span></div>
+          <div class="mono">10 sahnenin 3 tanesi bitti (%30) · 247 / 1.000 kelime</div></div></li>
+      <li class="durak" data-ac><span class="muhur">10</span><div class="bolum">Ayarlar</div><h3>Dosya masadan çıkar.</h3><p>Hikâye dosyasını Markdown ya da PDF olarak dışa aktarır, editörünüze ya da ortak yazarınıza gönderirsiniz.</p>
+        <div class="alinti"><small>Dışa aktarım</small><div class="mono">perabook-yedek-2026-11-09.json<br>perabook-2026-11-09.md</div></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ GİZLİLİK ============ -->
+<section class="gizlilik" id="gizlilik" aria-labelledby="gz-baslik">
+  <div class="sar">
+    <div class="bas" data-ac>
+      <span class="etiket">Gizlilik</span>
+      <h2 id="gz-baslik">Defteriniz <i>sizin masanızda</i> kalır.</h2>
+      <p>Bitmemiş bir roman, yazarın en mahrem dosyasıdır. Perabook'un bir sunucusu, bir hesabı, bir veritabanı yok; her şey kullandığınız tarayıcıda durur.</p>
+    </div>
+    <div class="ilkeler">
+      <div class="ilke" data-ac><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6M3 3l18 18"/></svg><h3>Hesap yok</h3><p>Kayıt, giriş, e-posta onayı yok. Adresi açtığınız an dosya hazır.</p></div>
+      <div class="ilke" data-ac><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg><h3>Tarayıcıda saklanır</h3><p>Kayıtlar tarayıcının yerel deposunda (localStorage) tutulur, her değişiklikte kendiliğinden kaydedilir.</p></div>
+      <div class="ilke" data-ac><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h9M10 7l5 5-5 5"/><path d="M20 4v16"/></svg><h3>Hiçbir yere gitmez</h3><p>Uygulama yazdıklarınızı bir sunucuya göndermez. Dışarıya giden tek istek arayüzün yazı tiplerini yüklemektir.</p></div>
+      <div class="ilke" data-ac><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><circle cx="9" cy="10" r="2"/><path d="m20 16-5-5-9 9"/></svg><h3>Görseller küçültülür</h3><p>Portre, galeri, dünya ve harita görselleri eklenirken boyutları küçültülür; depo şişmez.</p></div>
+    </div>
+
+    <div class="yedek" id="yedek">
+      <div data-ac>
+        <span class="etiket">XII · Ayarlar</span>
+        <h3>Yedek de, çıktı da <i style="color:#ff8a7f">sizde.</i></h3>
+        <p>Tarayıcıya bağlı bir dosyanın güvencesi düzenli yedektir. Ayarlar'da üç düğme var:</p>
+        <ul class="liste">
+          <li><b>JSON yedeği:</b> bütün kayıtlar, görseller ve sahne taslakları tek dosyada. Başka bir bilgisayara taşımak ya da geri yüklemek için.</li>
+          <li><b>Markdown:</b> karakterler, ilişkiler, dünya, iskelet, sahne özetleri, zaman çizelgesi, sözlük, akış ve fikirler okunur bir metin olarak.</li>
+          <li><b>PDF:</b> aynı içerik temiz bir sayfa düzeninde; tarayıcının yazdırma penceresinden "PDF olarak kaydet".</li>
+        </ul>
+        <p class="durust"><b>Bilmeniz gereken:</b> Kayıtlar yalnızca o tarayıcıda görünür; başka bir cihazda ya da tarayıcıda dosyanız yoktur. Tarayıcı verilerini temizlerseniz kayıtlar da silinir. Bu yüzden düzenli JSON yedeği öneriyoruz.</p>
+      </div>
+      <figure class="dosya" data-ac>
+        <span class="sekme"><i></i>Ayarlar</span>
+        <div class="kagit"><img src="ekran/ayarlar.webp" width="1548" height="446" loading="lazy" alt="Ayarlar, Yedekle paneli: JSON yedeği indir, Markdown olarak dışa aktar, PDF olarak yazdır düğmeleri"></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SSS ============ -->
+<section class="sss" id="sss" aria-labelledby="sss-baslik">
+  <div class="sar izgara">
+    <div class="bas" data-ac>
+      <span class="etiket">Sık sorulanlar</span>
+      <h2 id="sss-baslik" style="margin-top:18px">Kısa ve <i>açık</i> cevaplar.</h2>
+    </div>
+    <div class="sorular">
+      <details><summary>Hesap açmam ya da bir şey kurmam gerekiyor mu?<i aria-hidden="true"></i></summary><div class="cevap"><p>Hayır. Perabook tarayıcıda açılan bir web uygulaması. Kayıt, giriş ya da kurulum yok; sayfayı açtığınız anda hikâye dosyanız hazır.</p></div></details>
+      <details><summary>Yazdıklarım nerede saklanıyor?<i aria-hidden="true"></i></summary><div class="cevap"><p>Yalnızca kullandığınız tarayıcının yerel deposunda. Uygulama kayıtlarınızı bir sunucuya göndermez; bu yüzden dosyanız başka bir cihazda görünmez. Bir bilgisayardan ötekine geçmek için Ayarlar'dan JSON yedeği alıp diğer tarafta geri yüklersiniz.</p></div></details>
+      <details><summary>Romanın metnini de burada yazabilir miyim?<i aria-hidden="true"></i></summary><div class="cevap"><p>Her sahnenin bir "Taslak metin" sekmesi var; düz metin yazarsınız, kelime ve karakter sayısı anında görünür. Genel bakış, bütün sahne taslaklarının toplamını kendi kelime hedefinize karşı gösterir.</p><p>Kalın, italik ya da başlık gibi biçimlendirme yok. Perabook bir kelime işlemci değil; romanın planlama ve taslak masası.</p></div></details>
+      <details><summary>Dosyamı nasıl dışa aktarırım?<i aria-hidden="true"></i></summary><div class="cevap"><p>Ayarlar'da üç yol var: JSON yedeği (görseller ve sahne taslakları dahil bütün kayıtlar), Markdown ve PDF. Markdown ve PDF; karakterleri, ilişkileri, dünyayı, iskeleti, sahne özetlerini, zaman çizelgesini, sözlüğü, akış şemasını ve fikirleri içerir. PDF, tarayıcının yazdırma penceresinde "PDF olarak kaydet" seçilerek alınır.</p></div></details>
+      <details><summary>Senaryo yazarken de işe yarar mı?<i aria-hidden="true"></i></summary><div class="cevap"><p>Planlama tarafında evet: sahne kartları mekânı, oyuncuları ve durumu taşır; kanban'da çekim ya da yazım durumu izlenir; akış şeması dallanan kurguları gösterir. Senaryo yazım biçimi (sahne başlığı, diyalog düzeni) ise yok; metni kendi senaryo programınızda yazmaya devam edersiniz.</p></div></details>
+      <details><summary>Telefonda kullanabilir miyim?<i aria-hidden="true"></i></summary><div class="cevap"><p>Evet; arayüz dar ekrana uyum sağlar, kayıtları okuyup düzenleyebilir, fikir ve not ekleyebilirsiniz. İlişki tahtasındaki düğümler dokunarak da sürüklenir. Sahne kartlarını sürükleyerek sıralamak ve kanban'da sütun değiştirmek fareyle çalışır; bunlar için bilgisayar daha rahattır.</p></div></details>
+      <details><summary>Bu sayfadaki uygulama gerçek mi?<i aria-hidden="true"></i></summary><div class="cevap"><p>Evet, aynı uygulama. İlk açılışta örnek dosya ("Kuzguncuk'ta kayıp saat") yüklenir. Yaptığınız değişiklikler yalnızca bu tarayıcıda kalır; örnek kayıtları silip kendi hikâyenize başlayabilirsiniz.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KAPANIŞ ============ -->
+<section class="kapanis" aria-labelledby="kp-baslik">
+  <div class="sar">
+    <div class="bant" data-ac>
+      <div>
+        <span class="etiket">Perabayt</span>
+        <h2 id="kp-baslik">Kendi yazı masanızı <i>birlikte kuralım.</i></h2>
+        <p>Yayınevi, senaryo ekibi ya da yazı atölyesi; ekip çalışması, bulut yedeği ya da kendi alanlarınız gerekiyorsa, Perabook'un yaklaşımını sizin iş akışınıza göre birlikte tasarlarız.</p>
+      </div>
+      <div class="eylem">
+        <a class="btn koyu" href="https://perabayt-new.vercel.app/iletisim">Bize ulaşın <svg class="ok" width="18" height="18" aria-hidden="true"><use href="#i-ok"/></svg></a>
+        <a class="btn" href="https://perabayt-new.vercel.app/urunler#konsept">Diğer çalışmalarımız</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="sar">
+    <p><b>Perabook</b> · Perabayt tarafından tasarlandı ve geliştirildi · Konsept çalışma</p>
+    <nav aria-label="Alt bağlantılar"><a href="uygulama/">Hikâye dosyasını aç</a><a href="#neler">Neler var</a><a href="https://perabayt-new.vercel.app/urunler#konsept">Diğer çalışmalar</a><a href="https://perabayt-new.vercel.app/iletisim">İletişim</a></nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  // Not: Bu sayfa localStorage'a hiçbir şey yazmaz; "pera:*" anahtarları yalnızca uygulamanındır.
+  var az = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var kok = document.documentElement;
+  if (!az) kok.classList.add("hareket");
+  var $ = function (id) { return document.getElementById(id); };
+  var uyu = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+
+  /* ---------- Üst şerit, menü, etkin bağlantı ---------- */
+  var ust = $("ust"), menuDugme = $("menu-dugme");
+  function kaydi() { ust.classList.toggle("kaydi", scrollY > 8); }
+  addEventListener("scroll", kaydi, { passive: true }); kaydi();
+  function menuKapat() { ust.classList.remove("acik"); menuDugme.setAttribute("aria-expanded", "false"); menuDugme.setAttribute("aria-label", "Menüyü aç"); }
+  menuDugme.addEventListener("click", function () {
+    var acik = ust.classList.toggle("acik");
+    menuDugme.setAttribute("aria-expanded", acik); menuDugme.setAttribute("aria-label", acik ? "Menüyü kapat" : "Menüyü aç");
+  });
+  $("menu").addEventListener("click", function (e) { if (e.target.closest("a")) menuKapat(); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape") menuKapat(); });
+
+  if ("IntersectionObserver" in window) {
+    var baglar = {};
+    document.querySelectorAll(".menu a[href^='#']").forEach(function (a) { baglar[a.getAttribute("href").slice(1)] = a; });
+    var gozcu = new IntersectionObserver(function (g) {
+      g.forEach(function (x) {
+        if (x.isIntersecting && baglar[x.target.id]) Object.keys(baglar).forEach(function (k) { baglar[k].classList.toggle("etkin", k === x.target.id); });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    Object.keys(baglar).forEach(function (id) { var el = $(id); if (el) gozcu.observe(el); });
+
+    /* ---------- Görünce belir (yalnızca ekranın altında kalanlar) ---------- */
+    if (!az) {
+      var belir = new IntersectionObserver(function (g) {
+        g.forEach(function (x) { if (x.isIntersecting) { x.target.classList.remove("bekle"); x.target.classList.add("gorundu"); belir.unobserve(x.target); } });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+      document.querySelectorAll("[data-ac]").forEach(function (el) {
+        if (el.getBoundingClientRect().top > innerHeight * 0.92) { el.classList.add("bekle"); belir.observe(el); }
+        else el.classList.add("gorundu");
+      });
+    }
+  }
+  if (az || !("IntersectionObserver" in window)) document.querySelectorAll(".durak").forEach(function (d) { d.classList.add("gorundu"); });
+
+  /* =====================================================
+     Canlı uygulama ve rehberli tur
+     Uygulama aynı kökenden açılır; tur yalnızca gezinir, pencere ve
+     arama açar. Hiçbir kaydı değiştirmez. İlk gerçek etkileşimde durur.
+     ===================================================== */
+  var cer = $("uyg"), ekran = $("ekran"), imlec = $("imlec"), halka = $("halka");
+  var anlatim = $("anlatim"), anlatimNo = $("anlatim-no"), durum = $("durum"), tekrar = $("tekrar"), adimlarKutu = $("adimlar");
+  var dugmeler = Array.prototype.slice.call(document.querySelectorAll(".adim"));
+  var TABAN = 1120, k = 1, dar = false, sonGen = 0;
+
+  function olcekle() {
+    var cw = ekran.clientWidth;
+    if (!cw || cw === sonGen) return;
+    sonGen = cw;
+    if (cw >= TABAN) { k = 1; dar = false; cer.style.width = cw + "px"; cer.style.height = "700px"; cer.style.transform = ""; ekran.style.height = "700px"; }
+    else if (cw >= 860) { k = cw / TABAN; dar = false; cer.style.width = TABAN + "px"; cer.style.height = "720px"; cer.style.transform = "scale(" + k + ")"; ekran.style.height = Math.round(720 * k) + "px"; }
+    else {
+      // Telefonda uygulama en az 400 piksel genişlikte çizilir, çerçeveye sığdırılır
+      dar = true;
+      var taban = Math.max(cw, 400); k = cw / taban;
+      var h = Math.round(Math.min(640, Math.max(500, innerHeight * 0.7)));
+      cer.style.width = taban + "px"; cer.style.height = Math.round(h / k) + "px";
+      cer.style.transform = k < 1 ? "scale(" + k + ")" : ""; ekran.style.height = h + "px";
+    }
+  }
+  olcekle(); addEventListener("resize", olcekle);
+
+  function W() { try { return cer.contentWindow; } catch (_) { return null; } }
+  function D() { try { return cer.contentDocument; } catch (_) { return null; } }
+  function hazirMi() { var d = D(); return !!(d && d.querySelector(".mb-navbtn") && d.querySelector(".mb-h1")); }
+  function q(s) { var d = D(); return d ? d.querySelector(s) : null; }
+  function qa(s) { var d = D(); return d ? Array.prototype.slice.call(d.querySelectorAll(s)) : []; }
+  function kucuk(s) { return String(s || "").trim().toLocaleLowerCase("tr"); }
+  function metinle(s, metin) { var t = kucuk(metin); return qa(s).filter(function (el) { return kucuk(el.textContent).indexOf(t) >= 0; })[0] || null; }
+
+  var IPTAL = { iptal: true }, nesil = 0, oynuyor = false, gorunur = false;
+  async function bekle(ms, n) {
+    var kalan = ms;
+    while (kalan > 0) {
+      if (n !== nesil) throw IPTAL;
+      var a = Math.min(100, kalan);
+      await uyu(a);
+      if (gorunur && !document.hidden) kalan -= a;
+    }
+    if (n !== nesil) throw IPTAL;
+  }
+  async function hazirBekle() { var t = Date.now(); while (!hazirMi()) { if (Date.now() - t > 15000) return false; await uyu(150); } return true; }
+
+  // Odak, uygulamanın içinde kalsın; sayfayı kaydırmasın (palet ve pencereler autoFocus kullanır)
+  function odakYamasi() {
+    var w = W(); if (!w || w.__pbOdak) return; w.__pbOdak = 1;
+    try { var P = w.HTMLElement.prototype, f = P.focus; P.focus = function (o) { return f.call(this, Object.assign({ preventScroll: true }, o || {})); }; } catch (_) {}
+  }
+
+  /* imleç */
+  var imX = 60, imY = 60;
+  function imlecYer(x, y, ms) { imX = x; imY = y; imlec.style.transitionDuration = (ms == null ? 700 : ms) + "ms, 300ms"; imlec.style.transform = "translate(" + Math.round(x) + "px," + Math.round(y) + "px)"; }
+  function imlecGizle() { imlec.classList.remove("gorun"); }
+  async function imlecEl(el, n, ms) {
+    var r = el.getBoundingClientRect();
+    var x = (r.left + Math.min(r.width * 0.5, 56)) * k, y = (r.top + Math.min(r.height * 0.5, 30)) * k;
+    imlec.classList.add("gorun");
+    imlecYer(x, y, az ? 0 : (ms || 720));
+    await bekle(az ? 60 : (ms || 720) + 90, n);
+  }
+  function pat() {
+    halka.style.setProperty("--yer", "translate(" + Math.round(imX + 4) + "px," + Math.round(imY + 4) + "px)");
+    halka.style.transform = "translate(" + Math.round(imX + 4) + "px," + Math.round(imY + 4) + "px)";
+    halka.classList.remove("pat"); void halka.offsetWidth; halka.classList.add("pat");
+  }
+  async function kaydir(y, n) {
+    var w = W(); if (!w) return;
+    var hedef = Math.max(0, Math.round(y));
+    if (Math.abs(w.scrollY - hedef) < 4) return;
+    w.scrollTo({ top: hedef, behavior: az ? "auto" : "smooth" });
+    await bekle(az ? 60 : 720, n);
+  }
+  async function goster(el, n, oran) {
+    var w = W(), r = el.getBoundingClientRect(), vh = w.innerHeight;
+    if (r.top < 8 || r.bottom > vh - 8) await kaydir(w.scrollY + r.top - vh * (oran == null ? 0.3 : oran), n);
+  }
+  async function tikla(el, n) {
+    if (!el) return;
+    await goster(el, n);
+    await imlecEl(el, n);
+    imlec.classList.add("bas"); pat();
+    await bekle(170, n);
+    imlec.classList.remove("bas");
+    el.click();
+  }
+  function navBul(ad) { var t = kucuk(ad); return qa(".mb-navbtn").filter(function (b) { return kucuk(b.textContent).indexOf(t) === 0; })[0]; }
+  async function git(ad, n) {
+    var b = navBul(ad); if (!b) return;
+    if (b.classList.contains("on") && !dar) { if (W().scrollY > 0) await kaydir(0, n); return; }
+    await tikla(b, n);
+    await bekle(260, n);
+    if (dar) { var m = q(".mb-main"); if (m) await kaydir(m.getBoundingClientRect().top + W().scrollY, n); }
+    else await kaydir(0, n);
+  }
+  function kapat() {
+    var w = W(); if (!w) return;
+    var x = q(".ov .modal-h .icbtn"); if (x) x.click();
+    try { w.dispatchEvent(new w.KeyboardEvent("keydown", { key: "Escape", bubbles: true })); } catch (_) {}
+    var d = D(); if (d && d.activeElement && d.activeElement.blur) d.activeElement.blur();
+  }
+  function yaz(inp, v) {
+    var w = W();
+    var set = Object.getOwnPropertyDescriptor(w.HTMLInputElement.prototype, "value").set;
+    set.call(inp, v);
+    inp.dispatchEvent(new w.Event("input", { bubbles: true }));
+  }
+
+  /* ---------- Tur adımları ---------- */
+  var ADIM = [
+    { yazi: "Genel bakış: sayılar, sahnelerin durumu ve kelime hedefi tek ekranda.", sure: 5400, tel: 7900,
+      oyna: async function (n) {
+        await git("Genel Bakış", n); await bekle(1600, n);
+        var p = qa(".panel")[1]; if (p) { await imlecEl(p.querySelector("h2") || p, n); await goster(p, n, 0.25); }
+        await bekle(2600, n);
+      } },
+    { yazi: "Karakter dosyası: hedef, sır, ilişkiler ve sahneler tek sayfada.", sure: 10700, tel: 11500,
+      oyna: async function (n) {
+        await git("Karakterler", n); await bekle(1500, n);
+        var kart = metinle(".card", "Leyla Arıkan");
+        await tikla(kart && kart.querySelector(".chead h3"), n); await bekle(1500, n);
+        var p = metinle(".panel", "İlişkiler ("); if (p) { await goster(p, n, 0.12); await imlecEl(p.querySelector("h2") || p, n); }
+        await bekle(2800, n);
+      } },
+    { yazi: "İlişki tahtası: düğümler sürüklenir, her bağın türü ve yönü ayrı.", sure: 8300, tel: 7200,
+      oyna: async function (n) {
+        await git("İlişkiler", n); await bekle(1100, n);
+        var g = qa(".gnode");
+        for (var i = 0; i < g.length; i++) {
+          if (/Nesrin|Rıza|Leyla/.test(g[i].textContent)) { await imlecEl(g[i].querySelector("circle") || g[i], n, 650); await bekle(450, n); }
+        }
+        await bekle(1200, n);
+      } },
+    { yazi: "Sahneler: kanban panosu ve her sahnenin taslak metni.", sure: 13400, tel: 16000,
+      oyna: async function (n) {
+        await git("Sahneler", n); await bekle(1300, n);
+        await tikla(qa(".tagchip").filter(function (b) { return kucuk(b.textContent) === "kanban"; })[0], n); await bekle(1500, n);
+        await tikla(metinle(".kcard", "Kepenk"), n); await bekle(1100, n);
+        await tikla(qa(".modal .tagchip").filter(function (b) { return kucuk(b.textContent).indexOf("taslak") === 0; })[0], n);
+        await bekle(3600, n);
+        await tikla(q(".ov .modal-h .icbtn"), n); await bekle(400, n);
+        var kartlar = qa(".tagchip").filter(function (b) { return kucuk(b.textContent) === "kartlar"; })[0]; if (kartlar) kartlar.click();
+      } },
+    { yazi: "Zaman çizelgesi: 1971'den bugüne, sırayı siz belirlersiniz.", sure: 7000, tel: 8300,
+      oyna: async function (n) {
+        await git("Zaman Çizelgesi", n); await bekle(1300, n);
+        var t = metinle(".tl-item", "Durmuş Saatler"); if (t) await imlecEl(t.querySelector(".tl-title") || t, n);
+        var son = qa(".tl-item").pop(); if (son) await goster(son, n, 0.55);
+        await bekle(2600, n);
+      } },
+    { yazi: "Akış şeması: bir seçim, iki dal, iki son.", sure: 7400, tel: 8200,
+      oyna: async function (n) {
+        await git("Akış Şeması", n); await bekle(1100, n);
+        var sar = q(".flow-wrap");
+        if (sar && sar.clientWidth < 900) { sar.scrollTo({ left: Math.max(0, 540 - sar.clientWidth / 2), behavior: az ? "auto" : "smooth" }); await bekle(600, n); }
+        var dug = qa(".fnode").filter(function (g) { return /Polise mi/.test(g.textContent); })[0];
+        if (dug) { await goster(dug, n, 0.35); await imlecEl(dug.querySelector("rect") || dug, n); }
+        await bekle(2600, n);
+      } },
+    { yazi: "Harita: kendi görseliniz, tıkladığınız yerde pin.", sure: 6600, tel: 7400,
+      oyna: async function (n) {
+        await git("Harita", n); await bekle(1000, n);
+        var harita = q(".map-area"); if (harita) await goster(harita, n, dar ? 0.15 : 0.12);
+        var pin = qa(".pin").filter(function (p) { return /Mavi Yalı/.test(p.textContent); })[0];
+        if (pin) await imlecEl(pin.querySelector("span") || pin, n);
+        await bekle(2600, n);
+      } },
+    { yazi: "Her şeyde ara: karakter, mekân, sahne, terim aynı listede.", sure: 8400, tel: 9300,
+      oyna: async function (n) {
+        await git("Genel Bakış", n);
+        if (dar) await kaydir(q(".mb-main").getBoundingClientRect().top + W().scrollY, n);
+        await tikla(q(".mb-head .btn"), n); await bekle(500, n);
+        var inp = q(".ov .modal-h input");
+        if (inp) { var s = "saat"; for (var i = 1; i <= s.length; i++) { yaz(inp, s.slice(0, i)); await bekle(az ? 10 : 170, n); } }
+        await bekle(3600, n);
+        kapat(); await bekle(500, n);
+      } }
+  ];
+
+  function adimBoya(i, akis) {
+    dugmeler.forEach(function (b, j) {
+      var d = b.querySelector(".dolgu");
+      b.classList.toggle("etkin", j === i);
+      b.classList.toggle("bitti", akis && i >= 0 && j < i);
+      d.style.animation = "none";
+      if (j === i && akis) { void d.offsetWidth; d.style.animation = "dol " + (dar ? ADIM[i].tel : ADIM[i].sure) + "ms linear forwards"; }
+    });
+    if (i >= 0) {
+      anlatimNo.textContent = String(i + 1).padStart(2, "0") + "/" + String(ADIM.length).padStart(2, "0");
+      anlatim.textContent = ADIM[i].yazi;
+    }
+  }
+
+  async function dongu(bas) {
+    var n = ++nesil;
+    oynuyor = true; tekrar.hidden = true;
+    durum.classList.remove("sizde");
+    durum.textContent = "Tur kendiliğinden oynuyor. Uygulamaya tıkladığınızda durur, dosya sizin olur.";
+    try {
+      if (!(await hazirBekle())) return;
+      odakYamasi(); dinle();
+      await bekle(700, n);
+      var i = bas || 0;
+      while (true) {
+        adimBoya(i, true);
+        window.__pbTur = { adim: i, t: Date.now() };
+        await ADIM[i].oyna(n);
+        i = (i + 1) % ADIM.length;
+        if (i === 0) { kapat(); await bekle(600, n); }
+      }
+    } catch (e) { if (e !== IPTAL) { /* tur sessizce durur */ } }
+  }
+
+  function sirasizde(metin) {
+    nesil++;
+    if (oynuyor || metin) {
+      oynuyor = false;
+      imlecGizle();
+      adimBoya(-1, false);
+      anlatimNo.textContent = "SİZDE";
+      anlatim.textContent = "Dosya sizin: dilediğiniz bölüme geçin, kartları açın.";
+      durum.classList.add("sizde");
+      durum.textContent = metin || "Sıra sizde. Örnek dosyada gezinin; değişiklikleriniz yalnızca bu tarayıcıda kalır.";
+      tekrar.hidden = false;
+      window.__pbTur = { adim: -1, el: true };
+    }
+  }
+  function dinle() {
+    var d = D(); if (!d || d.__pbDinle) return; d.__pbDinle = true;
+    ["pointerdown", "keydown", "wheel", "touchmove"].forEach(function (t) {
+      d.addEventListener(t, function (e) { if (e.isTrusted && oynuyor) sirasizde(); }, { capture: true, passive: true });
+    });
+  }
+  cer.addEventListener("load", function () { dinle(); odakYamasi(); });
+
+  /* Adım düğmeleri: o bölüme doğrudan atlar, tur durur */
+  var ATLA = [
+    function () { return git("Genel Bakış", nesil); },
+    async function (n) { await git("Karakterler", n); var kart = metinle(".card", "Leyla Arıkan"); if (kart) kart.querySelector(".chead").click(); },
+    function (n) { return git("İlişkiler", n); },
+    async function (n) { await git("Sahneler", n); var b = qa(".tagchip").filter(function (x) { return kucuk(x.textContent) === "kanban"; })[0]; if (b) b.click(); },
+    function (n) { return git("Zaman Çizelgesi", n); },
+    function (n) { return git("Akış Şeması", n); },
+    function (n) { return git("Harita", n); },
+    async function (n) { var b = q(".mb-head .btn"); if (b) b.click(); await uyu(120); var inp = q(".ov .modal-h input"); if (inp) yaz(inp, "saat"); }
+  ];
+  async function atla(i) {
+    if (!hazirMi()) return;
+    kapat();
+    var n = nesil, eskiAz = az;
+    az = true; // anında geçiş: imleç yok, kaydırma animasyonu yok
+    try {
+      imlecGizle();
+      var w = W(); if (w && !dar) w.scrollTo(0, 0);
+      await ATLA[i](n);
+    } catch (_) {} finally { az = eskiAz; imlecGizle(); }
+    dugmeler.forEach(function (b, j) { b.classList.toggle("etkin", j === i); b.classList.remove("bitti"); });
+    anlatimNo.textContent = String(i + 1).padStart(2, "0") + "/" + String(ADIM.length).padStart(2, "0");
+    anlatim.textContent = ADIM[i].yazi;
+  }
+  dugmeler.forEach(function (b, i) {
+    b.addEventListener("click", function () {
+      sirasizde("Sıra sizde. " + ADIM[i].yazi.split(":")[0] + " açık; dilediğiniz gibi gezinin.");
+      var r = ekran.getBoundingClientRect();
+      if (r.top < 60 || r.bottom > innerHeight) $("cerceve").scrollIntoView({ behavior: az ? "auto" : "smooth", block: innerWidth < 760 ? "start" : "center" });
+      atla(i);
+    });
+  });
+  tekrar.addEventListener("click", function () {
+    kapat();
+    var r = ekran.getBoundingClientRect();
+    if (r.top < 0 || r.bottom > innerHeight) $("cerceve").scrollIntoView({ behavior: az ? "auto" : "smooth", block: innerWidth < 760 ? "start" : "center" });
+    dongu(0);
+  });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (g) {
+      gorunur = g[0].intersectionRatio >= 0.35;
+      adimlarKutu.classList.toggle("duraklat", !gorunur);
+    }, { threshold: [0, 0.35, 0.6] }).observe(ekran);
+  } else gorunur = true;
+  document.addEventListener("visibilitychange", function () { adimlarKutu.classList.toggle("duraklat", document.hidden || !gorunur); });
+
+  if (az) {
+    // Hareket azaltılmışsa tur kendiliğinden oynamaz; genel bakış açık kalır
+    durum.classList.add("sizde");
+    durum.textContent = "Hareket azaltma tercihiniz açık; tur kendiliğinden oynamaz. Adımlara dokunun ya da uygulamada gezinin.";
+    tekrar.hidden = false; tekrar.textContent = "Turu oynat";
+    hazirBekle().then(function (ok) { if (ok) { dinle(); odakYamasi(); } });
+  } else dongu(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/perabook/uygulama/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perabook · Hikâye dosyası</title>
+    <script data-ornek>(function () {
+  try {
+    var ls = window.localStorage;
+    if (ls.getItem("pera:chars") !== null) return;
+    var now = Date.now(), gun = 86400000;
+
+    var chars = [
+      { id: "c1", name: "Leyla Arıkan", role: "Ana karakter · eski gazeteci", age: "34", pronouns: "o", status: "Yaşıyor", affiliation: "Arıkan Saat Atölyesi", color: "#D7372B",
+        traits: "inatçı, gözlemci, gece kuşu", goal: "Kaybolan dedesi [[Rıza Usta]]'yı bulmak ve atölyenin satılmasını engellemek.",
+        secret: "İstanbul'a dönmesinin asıl sebebi işten çıkarılması; kimseye söylemedi.", tags: "kuzguncuk, ana kadro",
+        bio: "Ankara'da on yıl adliye muhabirliği yaptı. Dedesinin atölyesinin kepenkleri üç gündür açılmayınca [[Kuzguncuk İskelesi]]'ne ilk vapurla döndü. Soru sormayı bilir, cevap beklemeyi bilmez.",
+        img: null, gallery: [], fav: true },
+      { id: "c2", name: "Rıza Usta", role: "Saat ustası · kayıp", age: "78", pronouns: "o", status: "Kayıp", affiliation: "Saatçiler Loncası", color: "#2F6B4F",
+        traits: "sessiz, titiz, eski kafalı", goal: "Elli yıldır sakladığı sırrı doğru kişiye teslim etmek.",
+        secret: "[[Durmuş Saatler Gecesi]]'nde neler olduğunu bilen son kişi.", tags: "kuzguncuk, gizem",
+        bio: "Mahallenin bütün duvar saatleri bir kez onun elinden geçmiştir. [[Arıkan Saat Atölyesi]]'ni 1971'de açtı. Ortadan kaybolduğu gece tezgâhında yarım kalmış bir cep saati bulundu.",
+        img: null, gallery: [], fav: true },
+      { id: "c3", name: "Selim Doğan", role: "Komiser", age: "45", pronouns: "o", status: "Yaşıyor", affiliation: "Üsküdar Emniyeti", color: "#2563A8",
+        traits: "şüpheci, sabırlı, kuralcı", goal: "Dosyayı 'kendi isteğiyle ayrıldı' diye kapatmadan önce emin olmak.",
+        secret: "Lise arkadaşı [[Kerem Aksoy]]'a bir iyilik borçlu.", tags: "kolluk",
+        bio: "Yirmi yıllık polis. Leyla'nın gazeteci geçmişinden hoşlanmıyor ama ipuçlarının onda toplandığını görüyor.",
+        img: null, gallery: [], fav: false },
+      { id: "c4", name: "Nesrin Hanım", role: "Sahaf · mahallenin hafızası", age: "61", pronouns: "o", status: "Yaşıyor", affiliation: "Eski Harf Sahafı", color: "#5C4B8A",
+        traits: "zeki, alaycı, meraklı", goal: "Rıza'nın emanet ettiği defteri kimseye kaptırmamak.",
+        secret: "Gençliğinde Rıza Usta'yla nişanlanmış, düğün son gün iptal edilmiş.", tags: "kuzguncuk, tanık",
+        bio: "[[Eski Harf Sahafı]]'nın sahibi. Mahalledeki her evin tapusundan çok hikâyesini bilir. Leyla'ya ilk ipucunu çayın yanında, bir kitabın arasında verir.",
+        img: null, gallery: [], fav: false },
+      { id: "c5", name: "Kerem Aksoy", role: "Müteahhit · şüpheli", age: "40", pronouns: "o", status: "Yaşıyor", affiliation: "Aksoy Yapı", color: "#C57A00",
+        traits: "hırslı, kibar, sabırsız", goal: "Atölyenin bulunduğu binayı alıp [[Mavi Yalı]] projesine bağlamak.",
+        secret: "Yalının bodrumunda bulunan eski saat mekanizmasını kimseye bildirmedi.", tags: "şüpheli",
+        bio: "Restorasyon işleriyle büyüyen bir firmanın genç patronu. Rıza Usta'ya üç kez teklif götürdü, üçünde de kapıdan döndü.",
+        img: null, gallery: [], fav: false },
+      { id: "c6", name: "Defne Aksoy", role: "Restoratör", age: "29", pronouns: "o", status: "Yaşıyor", affiliation: "Mavi Yalı şantiyesi", color: "#0F766E",
+        traits: "dürüst, dalgın, cesur", goal: "Yalıyı aslına uygun kurtarmak, ağabeyinin gölgesinden çıkmak.",
+        secret: "Rıza Usta'yı kaybolmadan bir gün önce şantiyede gördü.", tags: "kuzguncuk, ana kadro",
+        bio: "Leyla'nın çocukluk arkadaşı. Ağabeyi [[Kerem Aksoy]]'un şirketinde çalışıyor ama projeye her geçen gün daha az inanıyor.",
+        img: null, gallery: [], fav: false },
+      { id: "c7", name: "Hüsnü Efendi", role: "Gece bekçisi", age: "66", pronouns: "o", status: "Yaşıyor", affiliation: "Mahalle", color: "#4A453E",
+        traits: "uykusuz, güvenilir, az konuşur", goal: "Gördüğünü anlatmak için doğru anı beklemek.",
+        secret: "Kayıp gecesi saat 03.17'de iskelede bir kayık sesi duydu.", tags: "tanık",
+        bio: "Otuz yıldır aynı sokakları dolaşıyor. Düdüğünü ancak gerçekten gerektiğinde çalar.",
+        img: null, gallery: [], fav: false }
+    ];
+
+    var pos = {
+      c1: { x: 380, y: 215 }, c2: { x: 380, y: 65 }, c3: { x: 130, y: 110 }, c4: { x: 640, y: 95 },
+      c5: { x: 150, y: 345 }, c6: { x: 390, y: 380 }, c7: { x: 640, y: 330 }
+    };
+
+    var rels = [
+      { id: "r1", from: "c1", to: "c2", type: "Aile", back: "Aile", note: "Leyla'yı annesinden sonra o büyüttü." },
+      { id: "r2", from: "c1", to: "c3", type: "Müttefik", back: "Rakip", note: "Aynı soruyu soruyorlar ama birbirlerine güvenmiyorlar." },
+      { id: "r3", from: "c1", to: "c6", type: "Dost", back: "Dost", note: "Aynı sokakta büyüdüler; on yıl görüşmediler." },
+      { id: "r4", from: "c1", to: "c4", type: "Müttefik", back: "Dost", note: "Nesrin, Leyla'ya bildiklerini parça parça veriyor." },
+      { id: "r5", from: "c5", to: "c2", type: "Düşman", back: "—", note: "Bina satışı yüzünden açık husumet." },
+      { id: "r6", from: "c6", to: "c5", type: "Aile", back: "Aile", note: "Kardeşler; ama projede ayrı yerlerde duruyorlar." },
+      { id: "r7", from: "c7", to: "c2", type: "Dost", back: "Dost", note: "Her sabah ilk çayı atölyede içerler." },
+      { id: "r8", from: "c3", to: "c5", type: "Dost", back: "Müttefik", note: "Lise arkadaşları; bu dostluk soruşturmayı gölgeliyor." },
+      { id: "r9", from: "c4", to: "c2", type: "Aşk", back: "Aşk", note: "Yarım kalmış bir nişan, hiç kapanmamış bir mektup." }
+    ];
+
+    var world = [
+      { id: "w1", title: "Arıkan Saat Atölyesi", category: "Mekan", img: null,
+        body: "Kuzguncuk'un yokuşunda, iki pencereli dar bir dükkân. Duvarda kırk iki saat var; hepsi aynı saati gösterir — biri hariç.\n\nTezgâhın altındaki çekmece [[Kurmalı Şifre]] ile açılır." },
+      { id: "w2", title: "Kuzguncuk İskelesi", category: "Mekan", img: null,
+        body: "Sabah ilk vapurun, gece son kayığın uğradığı ahşap iskele. [[Hüsnü Efendi]]'nin nöbet yerinin tam karşısında." },
+      { id: "w3", title: "Eski Harf Sahafı", category: "Mekan", img: null,
+        body: "Nesrin Hanım'ın tavana kadar kitap dolu dükkânı. Arka odada mahallenin 1950'lerden kalma bütün tamir defterleri saklanıyor." },
+      { id: "w4", title: "Mavi Yalı", category: "Mekan", img: null,
+        body: "Kıyıda, yarısı iskeleye dayalı ahşap yalı. Aksoy Yapı tarafından restore ediliyor. Bodrumundaki dev saat mekanizmasının kime ait olduğu bilinmiyor." },
+      { id: "w5", title: "Durmuş Saatler Gecesi", category: "Tarih", img: null,
+        body: "1987 kışında mahalledeki bütün saatlerin aynı anda, 03.17'de durduğu gece. Resmî kayıtlarda bir elektrik kesintisi olarak geçer. [[Rıza Usta]] o gece atölyede tek başınaydı." },
+      { id: "w6", title: "Kurmalı Şifre", category: "Sistem", img: null,
+        body: "Rıza Usta'nın icadı: bir saatin akrep ve yelkovanı belirli bir saate kurulunca gizli bir mandal açılır. Her saat ayrı bir kelimeyi saklar." }
+    ];
+
+    var scenes = [
+      { id: "s1", title: "Kepenk", status: "Bitti", arc: "Kayboluş", location: "Arıkan Saat Atölyesi", chars: ["c1", "c7"], tags: "açılış",
+        summary: "Leyla atölyenin üç gündür kapalı olduğunu görür; [[Hüsnü Efendi]] anahtarı ona verir.", notes: "Ses: kepengin gıcırtısı, uzaktan vapur düdüğü.",
+        draft: "Kepenk, kırk yılın pasını tek bir gıcırtıda boşalttı. Leyla eğilip içeri baktığında önce sesi duydu: kırk iki saatin aynı anda attığı tik. Sonra fark etti ki ses kırk bir saatten geliyordu.\n\nTezgâhın üstünde dedesinin büyüteci, yanında yarım kalmış bir cep saati duruyordu. Kapağı açıktı. İçindeki çark yerinde değildi; yerine katlanmış, sararmış bir kâğıt sıkıştırılmıştı.\n\n\"Üç gündür kimse girmedi,\" dedi Hüsnü Efendi kapının eşiğinden. \"Ben bekledim ki sen gelesin.\"\n\nLeyla kâğıdı açmadı. Önce duvardaki saatleri saydı. Sonra durmuş olanı buldu: kapının hemen üstünde, küçük, siyah kadranlı bir duvar saati. Akrep üçte, yelkovan on yedide." },
+      { id: "s2", title: "Kırk birinci saat", status: "Bitti", arc: "Kayboluş", location: "Arıkan Saat Atölyesi", chars: ["c1"], tags: "ipucu",
+        summary: "Durmuş saatin içinden [[Kurmalı Şifre]]'nin ilk kelimesi çıkar: 'İskele'.", notes: "",
+        draft: "Saati duvardan indirmek için dedesinin taburesine çıktı. Arkasında, tozun içinde temiz bir daire vardı; saat yakın zamanda yerinden oynatılmıştı.\n\nKadranı söktü. Mekanizmanın arasında pirinçten küçük bir kutu buldu. Kutunun kapağına kazınmış tek kelime: İSKELE.\n\nLeyla gülümsedi. Dedesi ona çocukken saat okumayı değil, saatin içini okumayı öğretmişti." },
+      { id: "s3", title: "Sahafta çay", status: "Bitti", arc: "İz Sürme", location: "Eski Harf Sahafı", chars: ["c1", "c4"], tags: "tanık",
+        summary: "Nesrin Hanım, Rıza Usta'nın emanet ettiği tamir defterini gösterir ama son sayfayı saklar.", notes: "Nesrin'in yalanı küçük ama okur fark etmeli.",
+        draft: "\"Deden bana bir defter bıraktı,\" dedi Nesrin Hanım, çayı tabağına dökerek. \"Ama sana değil, bana bıraktı. Farkı anlıyorsun, değil mi?\"\n\nDefter 1987'den başlıyordu. Her satırda bir ev, bir saat, bir tarih. Leyla parmağını sayfalarda gezdirirken kenara iliştirilmiş bir isme takıldı: Mavi Yalı — bodrum.\n\nSon sayfa yırtılmıştı. Nesrin Hanım bakışlarını kaçırdı." },
+      { id: "s4", title: "Komiserin masası", status: "Yazılıyor", arc: "İz Sürme", location: "Üsküdar Emniyeti", chars: ["c1", "c3"], tags: "çatışma",
+        summary: "Selim dosyayı kapatmak üzeredir; Leyla ona pirinç kutuyu gösterir.", notes: "Selim'in Kerem'e telefonu sahnenin sonunda.",
+        draft: "Komiser Selim Doğan dosyayı kapatırken bir an durdu. \"Yetmiş sekiz yaşında bir adam, kimseye haber vermeden gitmiş. Bu bir suç değil, Leyla Hanım.\"\n\nLeyla pirinç kutuyu masaya koydu. Selim kutuya uzun uzun baktı ama dokunmadı." },
+      { id: "s5", title: "Şantiye", status: "Yazılıyor", arc: "İz Sürme", location: "Mavi Yalı", chars: ["c1", "c6", "c5"], tags: "şüpheli",
+        summary: "Defne, Leyla'yı yalının bodrumuna gizlice indirir; Kerem beklenmedik anda gelir.", notes: "Bodrumdaki mekanizmanın ilk tarifi burada.",
+        draft: "Bodrumun nemi taş duvarlardan sızıyordu. Defne'nin fenerinin ışığı dev bir çarkın dişlerinde gezindi.\n\n\"Bunu kimse bilmiyor,\" diye fısıldadı. \"Ağabeyim bile bilmediğimi sanıyor.\"" },
+      { id: "s6", title: "Gece nöbeti", status: "Taslak", arc: "İz Sürme", location: "Kuzguncuk İskelesi", chars: ["c7", "c1"], tags: "tanık",
+        summary: "Hüsnü Efendi kayıp gecesi iskelede duyduğu kayık sesini anlatır.", notes: "", draft: "" },
+      { id: "s7", title: "Yırtık sayfa", status: "Taslak", arc: "Yüzleşme", location: "Eski Harf Sahafı", chars: ["c1", "c4"], tags: "itiraf",
+        summary: "Nesrin Hanım yırttığı son sayfayı ve yarım kalan nişanı anlatır.", notes: "", draft: "" },
+      { id: "s8", title: "Kardeşler", status: "Taslak", arc: "Yüzleşme", location: "Mavi Yalı", chars: ["c6", "c5"], tags: "çatışma",
+        summary: "Defne, Kerem'in mekanizmayı sakladığını öğrenir.", notes: "", draft: "" },
+      { id: "s9", title: "03.17", status: "Fikir", arc: "Yüzleşme", location: "Mavi Yalı", chars: ["c1", "c2", "c3"], tags: "doruk",
+        summary: "Bütün saatler aynı anda durur; Leyla bodrumda dedesini bulur.", notes: "", draft: "" },
+      { id: "s10", title: "İlk vapur", status: "Fikir", arc: "Yüzleşme", location: "Kuzguncuk İskelesi", chars: ["c1", "c2"], tags: "kapanış",
+        summary: "Atölyenin kepenkleri yeniden açılır; kırk iki saat aynı anda çalar.", notes: "", draft: "" }
+    ];
+
+    var outline = [
+      { id: "o1", title: "Durmuş Saat", beats: [
+        { id: "b1", text: "Leyla Kuzguncuk'a döner, atölye kapalıdır.", sceneId: "s1" },
+        { id: "b2", text: "Kırk ikinci saat 03.17'de durmuştur.", sceneId: "s2" },
+        { id: "b3", text: "Hüsnü Efendi bir şey bildiğini ima eder.", sceneId: "" } ] },
+      { id: "o2", title: "Defterdeki Ev", beats: [
+        { id: "b4", text: "Nesrin Hanım tamir defterini gösterir.", sceneId: "s3" },
+        { id: "b5", text: "Komiser dosyayı kapatmak ister.", sceneId: "s4" },
+        { id: "b6", text: "Defter Mavi Yalı'yı işaret eder.", sceneId: "" } ] },
+      { id: "o3", title: "Bodrum", beats: [
+        { id: "b7", text: "Leyla ve Defne şantiyeye girer.", sceneId: "s5" },
+        { id: "b8", text: "Kayık sesinin anlamı ortaya çıkar.", sceneId: "s6" },
+        { id: "b9", text: "Kerem'in sakladığı şey açığa çıkar.", sceneId: "s8" } ] },
+      { id: "o4", title: "Kırk İki Saat", beats: [
+        { id: "b10", text: "Nesrin yırtık sayfayı verir.", sceneId: "s7" },
+        { id: "b11", text: "03.17'de bütün saatler durur.", sceneId: "s9" },
+        { id: "b12", text: "Atölye yeniden açılır.", sceneId: "s10" } ] }
+    ];
+
+    var gloss = [
+      { id: "g1", term: "Akrep", def: "Saatin kısa ibresi. Rıza Usta'nın şifresinde 'kim' sorusunu gösterir." },
+      { id: "g2", term: "Yelkovan", def: "Saatin uzun ibresi. Şifrede 'nerede' sorusunun karşılığı." },
+      { id: "g3", term: "Kurmalı Şifre", def: "İbreler doğru saate getirilince açılan gizli mandal sistemi." },
+      { id: "g4", term: "Tamir defteri", def: "Atölyeye gelen her saatin kaydedildiği defter; mahallenin gizli haritası." },
+      { id: "g5", term: "Durmuş saat", def: "Mahallede kötüye yorulur; Rıza Usta ise 'birinin seni çağırması' derdi." },
+      { id: "g6", term: "Pandül", def: "Duvar saatlerinin salınan ağırlığı. Mavi Yalı'daki pandül bir insan boyunda." },
+      { id: "g7", term: "Lodos", def: "Kuzguncuk'ta kayıkların iskeleye yanaşamadığı güneybatı rüzgârı. Kayıp gecesi esiyordu." },
+      { id: "g8", term: "Eski Harf", def: "Nesrin Hanım'ın sahafı; ayrıca Osmanlıca belgeler için mahallede kullanılan deyim." },
+      { id: "g9", term: "Loncacı", def: "Saatçiler Loncası'nın son üyeleri için kullanılan, yarı şaka yarı saygı dolu ad." }
+    ];
+
+    var ideas = [
+      { id: "i1", text: "Her bölüm bir saatin kurulmasıyla başlasın: B01 'saat 08.00', B04 'saat 03.17'.", ts: now - 1 * gun },
+      { id: "i2", text: "Nesrin'in yırttığı sayfa aslında bir aşk mektubu olabilir — şifre değil.", ts: now - 2 * gun },
+      { id: "i3", text: "Kerem kötü adam olmasın; korkak olsun. Okur son ana kadar emin olamasın.", ts: now - 3 * gun },
+      { id: "i4", text: "Hüsnü Efendi'nin düdüğü finalde bir işaret olarak geri dönsün.", ts: now - 5 * gun },
+      { id: "i5", text: "Bodrumdaki mekanizma mahallenin bütün saatlerine bağlı mı? Teknik danışman bul.", ts: now - 6 * gun },
+      { id: "i6", text: "Kapanış sahnesinde vapur düdüğü ile kırk iki saatin çalışı üst üste bininsin.", ts: now - 8 * gun }
+    ];
+
+    var timeline = [
+      { id: "t1", when: "1971, ilkbahar", title: "Atölye açılır", desc: "Rıza Usta, Arıkan Saat Atölyesi'nin kepengini ilk kez kaldırır.", color: "#2F6B4F" },
+      { id: "t2", when: "1974, eylül", title: "Yarım kalan nişan", desc: "Nesrin Hanım ile Rıza Usta'nın düğünü son gün iptal edilir.", color: "#5C4B8A" },
+      { id: "t3", when: "1987, şubat · 03.17", title: "Durmuş Saatler Gecesi", desc: "Mahalledeki bütün saatler aynı anda durur. Rıza Usta atölyededir.", color: "#7A1F1A" },
+      { id: "t4", when: "2026, eylül", title: "Mavi Yalı restorasyonu başlar", desc: "Kerem Aksoy'un şirketi yalıyı devralır; Defne Aksoy şantiyenin başına geçer.", color: "#C57A00" },
+      { id: "t5", when: "2026, 2 kasım", title: "Rıza Usta kaybolur", desc: "Hüsnü Efendi gece 03.17'de iskelede bir kayık sesi duyar.", color: "#D7372B" },
+      { id: "t6", when: "2026, 5 kasım", title: "Leyla döner", desc: "Leyla Arıkan ilk vapurla Kuzguncuk'a gelir, atölyeyi kapalı bulur.", color: "#D7372B" },
+      { id: "t7", when: "2026, 7 kasım", title: "Dosya açık kalır", desc: "Komiser Selim Doğan pirinç kutuyu görünce dosyayı kapatmaktan vazgeçer.", color: "#2563A8" }
+    ];
+
+    var flow = {
+      nodes: [
+        { id: "f1", title: "Atölye kapalı", kind: "Başlangıç", x: 120, y: 80 },
+        { id: "f2", title: "Saat 03.17", kind: "Olay", x: 330, y: 80 },
+        { id: "f3", title: "Tamir defteri", kind: "Olay", x: 540, y: 80 },
+        { id: "f4", title: "Polise mi?", kind: "Seçim", x: 540, y: 220 },
+        { id: "f5", title: "Selim'le iz", kind: "Olay", x: 330, y: 360 },
+        { id: "f6", title: "Tek başına", kind: "Olay", x: 750, y: 360 },
+        { id: "f7", title: "Mavi Yalı bodrum", kind: "Olay", x: 540, y: 480 },
+        { id: "f8", title: "Rıza bulunur", kind: "Son", x: 330, y: 610 },
+        { id: "f9", title: "Sır gömülür", kind: "Son", x: 750, y: 610 }
+      ],
+      edges: [
+        { id: "e1", from: "f1", to: "f2", label: "" },
+        { id: "e2", from: "f2", to: "f3", label: "" },
+        { id: "e3", from: "f3", to: "f4", label: "" },
+        { id: "e4", from: "f4", to: "f5", label: "Evet" },
+        { id: "e5", from: "f4", to: "f6", label: "Hayır" },
+        { id: "e6", from: "f5", to: "f7", label: "" },
+        { id: "e7", from: "f6", to: "f7", label: "" },
+        { id: "e8", from: "f7", to: "f8", label: "Şifre" },
+        { id: "e9", from: "f7", to: "f9", label: "Kerem" }
+      ]
+    };
+
+    var harita =
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>" +
+      "<rect width='1200' height='800' fill='#EFE8D8'/>" +
+      "<path d='M860 0 C 820 160 900 260 850 400 C 800 540 900 650 870 800 L1200 800 L1200 0 Z' fill='#BFD3D6'/>" +
+      "<path d='M880 60 c20 -6 40 6 60 0 M900 300 c20 -6 40 6 60 0 M890 560 c20 -6 40 6 60 0 M1000 180 c20 -6 40 6 60 0 M1020 460 c20 -6 40 6 60 0 M990 700 c20 -6 40 6 60 0' stroke='#8FB0B5' stroke-width='3' fill='none'/>" +
+      "<g fill='#DCD2BC' stroke='#B9AC90' stroke-width='2'>" +
+      "<rect x='90' y='90' width='170' height='120'/><rect x='300' y='70' width='200' height='150'/><rect x='540' y='90' width='190' height='130'/>" +
+      "<rect x='80' y='270' width='190' height='170'/><rect x='310' y='280' width='160' height='150'/><rect x='520' y='270' width='210' height='160'/>" +
+      "<rect x='100' y='500' width='170' height='200'/><rect x='310' y='490' width='190' height='120'/><rect x='540' y='490' width='200' height='220'/>" +
+      "<rect x='310' y='650' width='190' height='80'/></g>" +
+      "<g stroke='#16130F' stroke-width='5' fill='none' stroke-linecap='round'>" +
+      "<path d='M40 245 L 820 245'/><path d='M40 465 C 300 470 600 455 810 470'/><path d='M285 40 L 285 760'/><path d='M505 40 C 510 300 500 500 515 760'/><path d='M750 40 C 760 300 745 520 770 760'/></g>" +
+      "<g stroke='#16130F' stroke-width='3' fill='none' stroke-dasharray='10 8'><path d='M770 610 L 860 610'/></g>" +
+      "<rect x='820' y='596' width='70' height='28' fill='#8A6A44' stroke='#16130F' stroke-width='3'/>" +
+      "<rect x='770' y='330' width='110' height='70' fill='#9DB7D9' stroke='#16130F' stroke-width='3'/>" +
+      "<g transform='translate(52 745)'><circle r='34' fill='none' stroke='#16130F' stroke-width='3'/><path d='M0 -30 L8 0 L0 30 L-8 0 Z' fill='#D7372B' stroke='#16130F' stroke-width='2'/><text y='-42' text-anchor='middle' font-family='Georgia,serif' font-size='20' fill='#16130F'>K</text></g>" +
+      "<text x='60' y='60' font-family='Georgia,serif' font-size='30' font-style='italic' fill='#16130F'>Kuzguncuk</text>" +
+      "<text x='990' y='420' font-family='Georgia,serif' font-size='26' font-style='italic' fill='#5E7F85' transform='rotate(-80 990 420)'>Boğaz</text>" +
+      "</svg>";
+    var map = {
+      image: "data:image/svg+xml;charset=utf-8," + encodeURIComponent(harita),
+      pins: [
+        { id: "p1", x: 33, y: 18, label: "Saat Atölyesi" },
+        { id: "p2", x: 72, y: 77, label: "İskele" },
+        { id: "p3", x: 32, y: 44, label: "Eski Harf" },
+        { id: "p4", x: 69, y: 47, label: "Mavi Yalı" },
+        { id: "p5", x: 15, y: 75, label: "Karakol" }
+      ]
+    };
+
+    var veri = { "pera:chars": chars, "pera:pos": pos, "pera:rels": rels, "pera:world": world, "pera:scenes": scenes,
+      "pera:outline": outline, "pera:gloss": gloss, "pera:ideas": ideas, "pera:map": map, "pera:timeline": timeline, "pera:flow": flow };
+    for (var k in veri) ls.setItem(k, JSON.stringify(veri[k]));
+    if (ls.getItem("pera:goal") === null) ls.setItem("pera:goal", "1000");
+  } catch (e) { /* depolama yoksa uygulama boş başlar */ }
+})();</script>
+    <script type="module" crossorigin src="/perabook/uygulama/assets/index-VU8Zo58f.js"></script>
+    <link rel="stylesheet" crossorigin href="/perabook/uygulama/assets/index-Dh0t3k6m.css">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="/_ortak/serit.js" defer></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
